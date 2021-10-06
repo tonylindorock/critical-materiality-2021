@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://assets/ui/screen_offset.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform bool apply_ca = true;
+uniform float blur_amount : hint_range(0, 5) = 1;
+uniform float dist : hint_range(0, 2) = 1;
+uniform bool use_offset = true;
+uniform sampler2D offset_texture : hint_white;
+
+void fragment(){
+	float amount = dist;
+	float amount_b = blur_amount;
+	if (use_offset){
+		amount = dist * texture(offset_texture, UV).r;
+		amount_b = blur_amount * texture(offset_texture, UV).r;
+	}
+	float r = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE.x * amount, 0.0), amount_b).r;
+	float g = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE.x * -amount, 0.0), amount_b).g;
+	float b = texture(SCREEN_TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE.x * 0.0, 0.0), amount_b).b;
+	
+	if (apply_ca){
+		COLOR = vec4(r, g, b, 1.0);
+	}else{
+		COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/apply_ca = true
+shader_param/blur_amount = 1.0
+shader_param/dist = 2.0
+shader_param/use_offset = true
+shader_param/offset_texture = ExtResource( 1 )

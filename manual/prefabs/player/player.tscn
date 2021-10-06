@@ -1,0 +1,229 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://prefabs/player/player.gd" type="Script" id=1]
+[ext_resource path="res://common/pause_screen.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://assets/ui/crosshair.png" type="Texture" id=9]
+[ext_resource path="res://resources/materials/shader/viewport_outline.tres" type="Material" id=10]
+[ext_resource path="res://common/material_preloader.tscn" type="PackedScene" id=12]
+[ext_resource path="res://common/terminal.tscn" type="PackedScene" id=13]
+[ext_resource path="res://prefabs/objects/item_spawn.tscn" type="PackedScene" id=14]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.5
+height = 1.8
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.5
+mid_height = 1.8
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.491187, 0.263691, 0.510933 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 6 )
+
+[node name="Player" type="KinematicBody"]
+collision_layer = 4
+script = ExtResource( 1 )
+speed = 9
+crouch_speed = 5
+run_speed = 16
+sway_h = Vector3( 0, 0.15, 0.1 )
+sway_v = Vector3( 0.1, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.38836, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.3895, 0 )
+visible = false
+cast_shadow = 0
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="AreaGround" type="Area" parent="."]
+input_ray_pickable = false
+monitorable = false
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="AreaGround"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316055, 0 )
+shape = SubResource( 3 )
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45987, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+cull_mask = 1048569
+near = 0.01
+
+[node name="Hand" type="Spatial" parent="Head/Camera"]
+
+[node name="Flashlight" type="Spatial" parent="Head/Camera/Hand"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.143803, 0, 0 )
+
+[node name="SpotLight" type="SpotLight" parent="Head/Camera/Hand/Flashlight"]
+layers = 15
+light_color = Color( 0.796078, 0.941176, 1, 1 )
+light_energy = 6.0
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.2
+shadow_reverse_cull_face = true
+spot_range = 30.0
+spot_attenuation = 0.401915
+spot_angle = 30.0
+spot_angle_attenuation = 0.0819199
+
+[node name="SpotLightCenter" type="SpotLight" parent="Head/Camera/Hand/Flashlight"]
+layers = 15
+light_color = Color( 0.796078, 0.941176, 1, 1 )
+light_energy = 6.0
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 0.2
+shadow_reverse_cull_face = true
+spot_range = 30.0
+spot_attenuation = 2.2974
+spot_angle = 15.0
+spot_angle_attenuation = 0.5
+
+[node name="RayInteract" type="RayCast" parent="Head/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -3.5 )
+collision_mask = 3
+
+[node name="RayWeapon" type="RayCast" parent="Head/Camera"]
+cast_to = Vector3( 0, 0, -100 )
+collision_mask = 11
+
+[node name="ObjPos" type="Position3D" parent="Head/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.5 )
+
+[node name="ItemSpawn" parent="Head/Camera" instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.773819, -1.1779 )
+
+[node name="MaterialPreloader" parent="Head/Camera" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.361 )
+
+[node name="RayCeiling" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.20706, 0 )
+enabled = true
+cast_to = Vector3( 0, 1, 0 )
+
+[node name="RayGround" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 2.98023e-08, 0, -2.98023e-08, 1, 0, 0.637, 0 )
+enabled = true
+collision_mask = 3
+
+[node name="TimerOffEdgeJump" type="Timer" parent="."]
+process_mode = 0
+wait_time = 0.2
+one_shot = true
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="."]
+material = ExtResource( 10 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportOutline" type="Viewport" parent="ViewportContainer2"]
+size = Vector2( 960, 540 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+shadow_atlas_size = 16
+
+[node name="CameraOutline" type="Camera" parent="ViewportContainer2/ViewportOutline"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45917, 0 )
+cull_mask = 4
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportWeapon" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 960, 540 )
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 3
+gui_disable_input = true
+shadow_atlas_size = 4
+
+[node name="Camera" type="Camera" parent="ViewportContainer/ViewportWeapon"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.46103, 0 )
+cull_mask = 2
+current = true
+fov = 33.0
+
+[node name="CanvasLayerHUD" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="PlayerUI" type="Control" parent="CanvasLayerHUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Crosshair" type="TextureRect" parent="CanvasLayerHUD/PlayerUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 9 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terminal" parent="CanvasLayerHUD/PlayerUI" instance=ExtResource( 13 )]
+visible = false
+
+[node name="CanvasLayerMenu" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="CanvasLayerMenu"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayerMenu/GUI"]
+visible = false
+anchor_right = 1.0
+margin_top = 16.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 4 )
+text = "IN GAME"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseScreen" parent="CanvasLayerMenu/GUI" instance=ExtResource( 5 )]
+visible = false
+
+[connection signal="body_entered" from="AreaGround" to="." method="_on_AreaGround_body_entered"]
+[connection signal="body_exited" from="AreaGround" to="." method="_on_AreaGround_body_exited"]
+[connection signal="exited" from="CanvasLayerHUD/PlayerUI/Terminal" to="." method="_on_Terminal_exited"]

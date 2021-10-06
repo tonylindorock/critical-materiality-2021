@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://resources/materials/shader/screen_shader.tres" type="Material" id=1]
+[ext_resource path="res://common/screen_texture.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/noise_0.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/noise_1.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/noise_2.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/noise_3.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/noise_4.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/noise_5.png" type="Texture" id=9]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
+
+[sub_resource type="Animation" id=2]
+resource_name = "film_grain"
+length = 0.1
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "advance_noise"
+} ]
+}
+
+[node name="ScreenTexture" type="Node"]
+pause_mode = 2
+script = ExtResource( 3 )
+noise_texture = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ChromaticAbbreviation" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grain" type="TextureRect" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.0980392 )
+material = SubResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "film_grain"
+playback_speed = 2.0
+anims/film_grain = SubResource( 2 )

@@ -1,0 +1,50 @@
+{
+  "test": {
+    "name": "Tony's Terminal",
+    "time": "12:41",
+    "week": "SUN",
+    "date": "SEP 09",
+    "msg": "This is a private terminal!",
+    "items": [{
+        "name": "Diary",
+        "content": "SEP 03\nToday is a great day.\n\nSEP 05\nToday is the worst!!!"
+      },
+      {
+        "name": "Reminder",
+        "content": "DON'T FORGET TO TAKE OUT THE TRASH!!!"
+      }
+    ]
+  },
+  "empty": {
+    "name": "Terminal",
+    "time": "11:37",
+    "week": "THU",
+    "date": "AUG 5",
+    "msg": "A message",
+    "items": [{
+        "name": "Item 0",
+        "content": "Things."
+      },
+      {
+        "name": "Item 1",
+        "content": "Stuff."
+      }
+    ]
+  },
+  "c1_0_restaurant": {
+    "name": "Glasshouse",
+    "time": "",
+    "week": "",
+    "date": "OCT",
+    "msg": "The property of Glasshouse",
+    "items": [{
+        "name": "Reservations",
+        "content": "[16:00]\n> Mr. Ronald\nSeat: 2\n\n\n[17:30]\n> Ms. Jackson\nSeat: 4\n\n\n[18:00]\n> Mr. Ching\nSeat: 3\n\n> Mr. Howell\nSeat: 6\n\n\n> H. Wellz\nSeat: 2\n\n\n[18:30]\n> Mx. Gora\nSeat: 4\n\n> Ms. Finna\nSeat: 3\n\n\n[19:00]\n> M. Book\nSeat: 2\n\n> Mr. Feocis\nSeat: 2\n\n> Ms. Hollem\nSeat: 2\n\n\n[19:30]\n> I. Lonly\nSeat: 1\n\n> Mr. Donny\nSeat: 2"
+      },
+      {
+        "name": "Staff",
+        "content": "[ADMIN]\nKaren Jolin\n\n[FRONT DESK]\nHaley Wu\n\n[SERVER]\nMarc Remen\nKevin Kelly\nTinna Sauluman\n\n[CHIEF]\nGorden Rimson\nMike Wavel"
+      }
+    ]
+  }
+}

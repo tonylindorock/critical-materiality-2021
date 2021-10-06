@@ -1,0 +1,38 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float width: hint_range(0.0, 10.0) = 1.0;
+uniform vec4 color: hint_color = vec4(1.0);
+
+
+void fragment() {
+	vec4 c = texture(TEXTURE, SCREEN_UV, 0.0);
+	
+	if (c.a == 0.0){
+		
+		vec2 side_width = width * SCREEN_PIXEL_SIZE;
+		bool is_done = false;
+	
+		for (float x = -side_width.x; x <= side_width.x && !is_done; x += SCREEN_PIXEL_SIZE.x) {
+			for (float y = -side_width.y; y <= side_width.y && !is_done; y += SCREEN_PIXEL_SIZE.y) {
+				vec4 nc = texture(TEXTURE, SCREEN_UV + vec2(x, y), 0.0);
+				if (nc.a != 0.0) {
+					COLOR = color;
+					is_done = true;
+				}
+			}
+		}
+		if (!is_done){
+			COLOR = vec4(0, 0, 0, 0);
+		}
+	}else{
+		COLOR = vec4(0, 0, 0, 0);
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/width = 1.5
+shader_param/color = Color( 0, 1, 0, 0.588235 )

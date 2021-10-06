@@ -1,0 +1,110 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://resources/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/btn_arrow_up.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/roboto/Roboto-BoldItalic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/ui/btn_arrow_up_pressed.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/btn_arrow_down_hover.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/btn_arrow_up_hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/btn_arrow_dowm_pressed.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/btn_arrow_down.png" type="Texture" id=9]
+[ext_resource path="res://prefabs/ui/option_selector.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="OptionSelector" type="Control"]
+anchor_right = 0.166667
+anchor_bottom = 0.118519
+rect_min_size = Vector2( 160, 64 )
+size_flags_horizontal = 2
+theme = ExtResource( 1 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Des" type="Label" parent="MainContainer"]
+margin_right = 160.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Name"
+valign = 2
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BottomContainer" type="HBoxContainer" parent="MainContainer"]
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_constants/separation = 0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DesOption" type="Label" parent="MainContainer/BottomContainer"]
+margin_right = 144.0
+margin_bottom = 32.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Option 0"
+align = 1
+valign = 1
+clip_text = true
+uppercase = true
+
+[node name="BtnContainer" type="VBoxContainer" parent="MainContainer/BottomContainer"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 32.0
+size_flags_horizontal = 8
+size_flags_vertical = 3
+custom_constants/separation = 0
+
+[node name="BtnUp" type="TextureButton" parent="MainContainer/BottomContainer/BtnContainer"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 16, 16 )
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+
+[node name="BtnBottom" type="TextureButton" parent="MainContainer/BottomContainer/BtnContainer"]
+margin_top = 16.0
+margin_right = 16.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 16, 16 )
+size_flags_horizontal = 0
+size_flags_vertical = 6
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 6 )
+expand = true
+stretch_mode = 5
+
+[connection signal="pressed" from="MainContainer/BottomContainer/BtnContainer/BtnUp" to="." method="_on_BtnUp_pressed"]
+[connection signal="pressed" from="MainContainer/BottomContainer/BtnContainer/BtnBottom" to="." method="_on_BtnBottom_pressed"]

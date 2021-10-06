@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/3d/environment/mesh/plant_bb.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://resources/materials/grass_green.tres" type="Material" id=2]
+
+[node name="GrassShortInstance" type="MeshInstance"]
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )

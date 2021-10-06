@@ -1,0 +1,19 @@
+[gd_resource type="SpatialMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://assets/3d/environment/texture/bark_brown_01_ao_1k.png" type="Texture" id=1]
+[ext_resource path="res://assets/3d/environment/texture/bark_brown_01_diff_1k.png" type="Texture" id=2]
+[ext_resource path="res://assets/3d/environment/texture/bark_brown_01_rough_1k.png" type="Texture" id=3]
+[ext_resource path="res://assets/3d/environment/texture/bark_brown_01_nor_gl_1k.png" type="Texture" id=4]
+
+[resource]
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 3 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 4 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 1 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+uv1_scale = Vector3( 0.542, 1.154, 1 )

@@ -1,0 +1,20 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+resource_local_to_scene = true
+code = "shader_type spatial;
+
+uniform vec4 highlightColor : hint_color = vec4(1.0, 0.0, 0.0, 1.0);
+uniform float strength: hint_range(0, 1) = 0.2;
+
+void fragment(){
+	ALBEDO = highlightColor.rgb;
+	ALPHA = strength;
+}
+"
+
+[resource]
+resource_local_to_scene = true
+shader = SubResource( 1 )
+shader_param/highlightColor = Color( 0, 1, 0, 0.784314 )
+shader_param/strength = 0.0

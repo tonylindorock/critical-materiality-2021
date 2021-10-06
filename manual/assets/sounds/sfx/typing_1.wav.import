@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/typing_1.wav-22a2d3ef992488e7ee7ebabfd56fa50d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/sfx/typing_1.wav"
+dest_files=[ "res://.import/typing_1.wav-22a2d3ef992488e7ee7ebabfd56fa50d.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=1

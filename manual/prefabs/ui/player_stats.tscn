@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/ui/progress_health_circle.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/progress_stamina_circle.png" type="Texture" id=2]
+
+[sub_resource type="Animation" id=1]
+resource_name = "LowHealth"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("ProgressHealth:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="PlayerStats" type="CenterContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+size_flags_horizontal = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressStamina" type="TextureProgress" parent="."]
+margin_right = 64.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+size_flags_horizontal = 2
+value = 100.0
+texture_under = ExtResource( 2 )
+texture_over = ExtResource( 2 )
+texture_progress = ExtResource( 2 )
+fill_mode = 5
+tint_under = Color( 0, 0, 0, 0 )
+tint_over = Color( 1, 1, 1, 0 )
+
+[node name="ProgressHealth" type="TextureProgress" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 57.0
+margin_bottom = 57.0
+rect_min_size = Vector2( 32, 32 )
+mouse_filter = 2
+size_flags_horizontal = 2
+value = 100.0
+texture_under = ExtResource( 1 )
+texture_over = ExtResource( 1 )
+texture_progress = ExtResource( 1 )
+fill_mode = 3
+tint_under = Color( 0, 0, 0, 0 )
+tint_over = Color( 1, 1, 1, 0 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LowHealth = SubResource( 1 )

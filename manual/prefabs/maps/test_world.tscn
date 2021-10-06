@@ -1,0 +1,140 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/materials/grid_light_wall.tres" type="Material" id=2]
+[ext_resource path="res://resources/materials/grid_dark_01.tres" type="Material" id=3]
+[ext_resource path="res://assets/kenney_prototype_textures/PNG/Green/texture_02.png" type="Texture" id=4]
+[ext_resource path="res://resources/world_env.tres" type="Environment" id=5]
+[ext_resource path="res://prefabs/objects/pickable.tscn" type="PackedScene" id=6]
+[ext_resource path="res://prefabs/maps/test_world.gd" type="Script" id=8]
+[ext_resource path="res://prefabs/environment/pine_tree_dense.tscn" type="PackedScene" id=12]
+[ext_resource path="res://prefabs/environment/pine_tree_single.tscn" type="PackedScene" id=13]
+[ext_resource path="res://prefabs/environment/bush.tscn" type="PackedScene" id=14]
+[ext_resource path="res://prefabs/miscellaneous/area_no_return.tscn" type="PackedScene" id=15]
+[ext_resource path="res://prefabs/environment/grass_tall.tscn" type="PackedScene" id=16]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 80, 2, 80 )
+
+[sub_resource type="ConvexPolygonShape" id=2]
+points = PoolVector3Array( -40, 1, 40, 40, 1, -40, 40, 1, 40, -40, 1, -40, -40, -1, 40, 40, -1, -40, 40, -1, 40, -40, -1, -40, 40, 1, 40, -40, 1, -40, 40, 1, -40, -40, 1, 40, 40, -1, 40, -40, -1, -40, 40, -1, -40, -40, -1, 40, 40, 1, 40, -40, -1, 40, -40, 1, 40, 40, -1, 40, 40, 1, -40, -40, -1, -40, -40, 1, -40, 40, -1, -40 )
+
+[sub_resource type="SpatialMaterial" id=3]
+flags_world_triplanar = true
+albedo_texture = ExtResource( 4 )
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[node name="TestWorld" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = ExtResource( 5 )
+
+[node name="StaticBody" type="StaticBody" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="StaticBody"]
+mesh = SubResource( 1 )
+material/0 = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody"]
+shape = SubResource( 2 )
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_in_baked_light = true
+use_collision = true
+collision_mask = 15
+
+[node name="CSGBox2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 13 )
+width = 12.0
+height = 6.0
+depth = 16.0
+material = ExtResource( 2 )
+
+[node name="CSGBox3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 13 )
+width = 12.0
+height = 6.0
+depth = 16.0
+material = ExtResource( 2 )
+
+[node name="CSGBox4" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, -13 )
+width = 12.0
+height = 6.0
+depth = 16.0
+material = ExtResource( 2 )
+
+[node name="CSGBox5" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, -13 )
+width = 12.0
+height = 6.0
+depth = 16.0
+material = ExtResource( 2 )
+
+[node name="CSGPolygon" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( -4.37114e-08, 4.37114e-08, -1, 1, 1.91069e-15, -4.37114e-08, 0, -1, -4.37114e-08, 2, 1, -20 )
+polygon = PoolVector2Array( 0, 1, 6, 1, 6, -1, 0, -13 )
+depth = 2.0
+material = SubResource( 3 )
+
+[node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.63272, 13.4552 )
+width = 8.0
+height = 1.5
+depth = 10.0
+
+[node name="AreaNoReturn" parent="." instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000518799, -12.5796, -0.00212097 )
+
+[node name="Lights" type="Spatial" parent="."]
+
+[node name="DirectionalLight2" type="DirectionalLight" parent="Lights"]
+transform = Transform( -0.968033, 0.0317823, -0.248802, 0.00523048, 0.994282, 0.10666, 0.250769, 0.101949, -0.962664, 0, 6.57856, 0 )
+layers = 15
+light_color = Color( 0.945098, 0.47451, 0.243137, 1 )
+light_energy = 1.5
+shadow_enabled = true
+shadow_color = Color( 0.184314, 0.164706, 0.239216, 1 )
+shadow_bias = 0.01
+shadow_reverse_cull_face = true
+directional_shadow_mode = 0
+directional_shadow_normal_bias = 0.0
+directional_shadow_depth_range = 1
+
+[node name="SpotLight" type="SpotLight" parent="Lights"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 22.1315, 0 )
+layers = 15
+light_energy = 13.18
+shadow_enabled = true
+shadow_bias = 6.39
+spot_range = 30.9
+spot_angle = 23.1
+
+[node name="PineTreeDense" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.3766, 0, -12.7577 )
+
+[node name="PineTreeSingle" parent="." instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -25.6588, 1.37209, 9.17287 )
+
+[node name="GrassTall" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.0717, 0.997508, -4.46407 )
+
+[node name="GrassTall2" parent="." instance=ExtResource( 16 )]
+transform = Transform( 0.994674, 0, -0.10307, 0, 1, 0, 0.10307, 0, 0.994674, -23.5013, 0.997508, -4.91814 )
+
+[node name="GrassTall3" parent="." instance=ExtResource( 16 )]
+transform = Transform( 0.881979, 0, 0.471289, 0, 1, 0, -0.471289, 0, 0.881979, -22.5635, 0.997508, -6.65638 )
+
+[node name="Bush" parent="." instance=ExtResource( 14 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.3936, 0.997973, -3.51362 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.81188, 1.27045, 0 )
+
+[node name="Pickable" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.24117, 1.79396, -0.199553 )
+
+[node name="Pickable2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06658, 1.79112, -11.3024 )

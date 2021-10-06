@@ -1,0 +1,417 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/main_theme.tres" type="Theme" id=2]
+[ext_resource path="res://prefabs/ui/slider.tscn" type="PackedScene" id=3]
+[ext_resource path="res://common/settings.gd" type="Script" id=4]
+[ext_resource path="res://prefabs/ui/option_selector.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/fonts/roboto/Roboto-BoldItalic.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://resources/materials/shader/shader_blur.tres" type="Material" id=7]
+[ext_resource path="res://prefabs/ui/theme_btn.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+extra_spacing_top = -8
+extra_spacing_bottom = -8
+extra_spacing_char = -4
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 128
+extra_spacing_top = -22
+extra_spacing_bottom = -32
+extra_spacing_char = -8
+font_data = ExtResource( 1 )
+
+[node name="Settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BgBlur" type="ColorRect" parent="."]
+material = ExtResource( 7 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.588235 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainContainer" type="VBoxContainer" parent="Margin"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 928.0
+margin_bottom = 508.0
+alignment = 2
+
+[node name="TopContainer" type="HBoxContainer" parent="Margin/MainContainer"]
+margin_right = 896.0
+margin_bottom = 375.0
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[node name="LeftContainer" type="VBoxContainer" parent="Margin/MainContainer/TopContainer"]
+margin_right = 432.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 0
+alignment = 1
+
+[node name="BtnGameplay" type="Button" parent="Margin/MainContainer/TopContainer/LeftContainer"]
+margin_top = 67.0
+margin_right = 432.0
+margin_bottom = 127.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+toggle_mode = true
+pressed = true
+text = "GAMEPLAY"
+align = 2
+script = ExtResource( 8 )
+
+[node name="BtnGraphics" type="Button" parent="Margin/MainContainer/TopContainer/LeftContainer"]
+margin_top = 127.0
+margin_right = 432.0
+margin_bottom = 187.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+toggle_mode = true
+text = "GRAPHICS"
+align = 2
+script = ExtResource( 8 )
+
+[node name="BtnSounds" type="Button" parent="Margin/MainContainer/TopContainer/LeftContainer"]
+margin_top = 187.0
+margin_right = 432.0
+margin_bottom = 247.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+toggle_mode = true
+text = "SOUNDS"
+align = 2
+script = ExtResource( 8 )
+
+[node name="BtnInput" type="Button" parent="Margin/MainContainer/TopContainer/LeftContainer"]
+margin_top = 247.0
+margin_right = 432.0
+margin_bottom = 307.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+toggle_mode = true
+text = "INPUTS"
+align = 2
+script = ExtResource( 8 )
+
+[node name="RightContainer" type="VBoxContainer" parent="Margin/MainContainer/TopContainer"]
+margin_left = 464.0
+margin_right = 896.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+alignment = 1
+
+[node name="BtnReset" type="Button" parent="Margin/MainContainer/TopContainer/RightContainer"]
+margin_left = 272.0
+margin_right = 432.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 10
+size_flags_vertical = 0
+text = "RESET"
+align = 2
+script = ExtResource( 8 )
+
+[node name="Controls" type="MarginContainer" parent="Margin/MainContainer/TopContainer/RightContainer"]
+margin_top = 37.0
+margin_right = 432.0
+margin_bottom = 375.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_bottom = 16
+
+[node name="Scroll" type="ScrollContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls"]
+margin_top = 16.0
+margin_right = 416.0
+margin_bottom = 322.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="GameplayControls" type="VBoxContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll"]
+margin_right = 320.0
+margin_bottom = 64.0
+mouse_filter = 0
+custom_constants/separation = 8
+
+[node name="SliderMouseS" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll/GameplayControls" instance=ExtResource( 3 )]
+margin_right = 320.0
+_text = "Mouse Sensitivity"
+
+[node name="Scroll2" type="ScrollContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls"]
+margin_top = 16.0
+margin_right = 416.0
+margin_bottom = 322.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="GraphicControls" type="VBoxContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2"]
+margin_right = 408.0
+margin_bottom = 547.0
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SliderBright" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls" instance=ExtResource( 3 )]
+margin_right = 320.0
+size_flags_horizontal = 2
+_text = "Brightness"
+
+[node name="SliderFOV" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls" instance=ExtResource( 3 )]
+margin_top = 72.0
+margin_right = 320.0
+margin_bottom = 136.0
+size_flags_horizontal = 2
+_text = "FOV"
+_min = 40
+_max = 120
+_value = 80
+_num_sign = ""
+
+[node name="Empty3" type="Control" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 144.0
+margin_right = 408.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+
+[node name="LabelDetail" type="Label" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 184.0
+margin_right = 73.0
+margin_bottom = 213.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Details"
+
+[node name="CheckOptimized" type="CheckBox" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 221.0
+margin_right = 183.0
+margin_bottom = 240.0
+size_flags_horizontal = 2
+text = "VEGETATION ANIMATION"
+
+[node name="ShadowOption" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 248.0
+margin_right = 160.0
+margin_bottom = 312.0
+_name = "Shadow"
+_options = [ "Low", "Medium", "High" ]
+_current_id = 2
+
+[node name="Empty" type="Control" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 320.0
+margin_right = 408.0
+margin_bottom = 352.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+
+[node name="LabelFX" type="Label" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 360.0
+margin_right = 157.0
+margin_bottom = 389.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Special Effects"
+
+[node name="CheckCA" type="CheckBox" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 397.0
+margin_right = 202.0
+margin_bottom = 416.0
+size_flags_horizontal = 2
+pressed = true
+text = "CHROMATIC ABBREVIATION"
+
+[node name="CheckGrain" type="CheckBox" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 424.0
+margin_right = 97.0
+margin_bottom = 443.0
+size_flags_horizontal = 2
+pressed = true
+text = "FILM GRAIN"
+
+[node name="Empty2" type="Control" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 451.0
+margin_right = 408.0
+margin_bottom = 483.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+
+[node name="LabelACC" type="Label" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 491.0
+margin_right = 147.0
+margin_bottom = 520.0
+size_flags_horizontal = 2
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "Accessibilties"
+
+[node name="CheckHContrast" type="CheckBox" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll2/GraphicControls"]
+margin_top = 528.0
+margin_right = 136.0
+margin_bottom = 547.0
+size_flags_horizontal = 2
+text = "HIGH CONSTRAST"
+
+[node name="Scroll3" type="ScrollContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls"]
+visible = false
+margin_top = 16.0
+margin_right = 416.0
+margin_bottom = 322.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="SoundControls" type="VBoxContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll3"]
+margin_right = 416.0
+margin_bottom = 306.0
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SliderAmbience" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll3/SoundControls" instance=ExtResource( 3 )]
+margin_right = 320.0
+_text = "Ambience"
+
+[node name="SliderMusic" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll3/SoundControls" instance=ExtResource( 3 )]
+margin_top = 72.0
+margin_right = 320.0
+margin_bottom = 136.0
+_text = "Music"
+
+[node name="SliderSFX" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll3/SoundControls" instance=ExtResource( 3 )]
+margin_top = 144.0
+margin_right = 320.0
+margin_bottom = 208.0
+_text = "SFX"
+
+[node name="SliderDialog" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll3/SoundControls" instance=ExtResource( 3 )]
+margin_top = 216.0
+margin_right = 320.0
+margin_bottom = 280.0
+_text = "UI"
+
+[node name="Scroll4" type="ScrollContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls"]
+visible = false
+margin_top = 16.0
+margin_right = 416.0
+margin_bottom = 322.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+follow_focus = true
+scroll_horizontal_enabled = false
+
+[node name="InputControls" type="VBoxContainer" parent="Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll4"]
+margin_right = 416.0
+margin_bottom = 306.0
+mouse_filter = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 8
+
+[node name="BottomContainer" type="HBoxContainer" parent="Margin/MainContainer"]
+margin_top = 379.0
+margin_right = 896.0
+margin_bottom = 476.0
+
+[node name="Title" type="Label" parent="Margin/MainContainer/BottomContainer"]
+margin_right = 732.0
+margin_bottom = 97.0
+size_flags_horizontal = 3
+size_flags_vertical = 8
+custom_fonts/font = SubResource( 3 )
+text = "SETTINGS"
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Btns" type="VBoxContainer" parent="Margin/MainContainer/BottomContainer"]
+margin_left = 736.0
+margin_top = 35.0
+margin_right = 896.0
+margin_bottom = 97.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 8
+size_flags_vertical = 8
+alignment = 2
+
+[node name="BtnOk" type="Button" parent="Margin/MainContainer/BottomContainer/Btns"]
+margin_right = 160.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "CONFIRM"
+align = 2
+script = ExtResource( 8 )
+
+[node name="BtnCancel" type="Button" parent="Margin/MainContainer/BottomContainer/Btns"]
+margin_top = 33.0
+margin_right = 160.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "CANCEL"
+align = 2
+script = ExtResource( 8 )
+
+[connection signal="pressed" from="Margin/MainContainer/BottomContainer/Btns/BtnOk" to="." method="_on_BtnOk_pressed"]
+[connection signal="pressed" from="Margin/MainContainer/BottomContainer/Btns/BtnCancel" to="." method="_on_BtnCancel_pressed"]

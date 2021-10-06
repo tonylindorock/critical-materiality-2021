@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/bullet_hole_metal_color.png-5377420908976bf79bd19b3fd436365d.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://assets/3d/miscellaneous/texture/bullet_hole_metal_color.png"
+dest_files=[ "res://.import/bullet_hole_metal_color.png-5377420908976bf79bd19b3fd436365d.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=false
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=1
+process/fix_alpha_border=true
+process/premult_alpha=true
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=64
+detect_3d=false
+svg/scale=1.0

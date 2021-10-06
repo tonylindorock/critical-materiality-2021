@@ -1,0 +1,241 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://resources/materials/shader/crt_screen.tres" type="Material" id=1]
+[ext_resource path="res://common/cursor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/theme_terminal.tres" type="Theme" id=3]
+[ext_resource path="res://common/terminal.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://assets/fonts/BTBoldMono.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+font_data = SubResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Margin/CanvasLayer/ScreenFX:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Terminal" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -480.0
+margin_top = -270.0
+margin_right = 480.0
+margin_bottom = 270.0
+rect_clip_content = true
+custom_constants/margin_right = 128
+custom_constants/margin_top = 32
+custom_constants/margin_left = 128
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScreenColor" type="ColorRect" parent="Margin"]
+margin_left = 128.0
+margin_top = 32.0
+margin_right = 832.0
+margin_bottom = 508.0
+color = Color( 0.14902, 0.0745098, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginText" type="MarginContainer" parent="Margin"]
+modulate = Color( 1, 0.498039, 0, 1 )
+margin_left = 128.0
+margin_top = 32.0
+margin_right = 832.0
+margin_bottom = 508.0
+rect_clip_content = true
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="VBoxContainer" parent="Margin/MarginText"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 672.0
+margin_bottom = 444.0
+custom_constants/separation = 8
+
+[node name="Display" type="VBoxContainer" parent="Margin/MarginText/Container"]
+margin_right = 640.0
+margin_bottom = 385.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 4
+
+[node name="Title" type="Label" parent="Margin/MarginText/Container/Display"]
+margin_right = 640.0
+margin_bottom = 51.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 2 )
+text = "TONY's Terminal"
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Status" type="Label" parent="Margin/MarginText/Container/Display"]
+margin_top = 55.0
+margin_right = 640.0
+margin_bottom = 74.0
+text = "[23:11 | SAT | OCT 30]"
+autowrap = true
+
+[node name="Loc" type="Label" parent="Margin/MarginText/Container/Display"]
+margin_top = 78.0
+margin_right = 640.0
+margin_bottom = 119.0
+text = "LOC//:main_disk
+"
+autowrap = true
+
+[node name="Msg" type="Label" parent="Margin/MarginText/Container/Display"]
+margin_top = 123.0
+margin_right = 640.0
+margin_bottom = 164.0
+text = "MSG
+"
+autowrap = true
+
+[node name="BtnItemContainer" type="VBoxContainer" parent="Margin/MarginText/Container/Display"]
+margin_top = 168.0
+margin_right = 640.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 32 )
+
+[node name="Content" type="RichTextLabel" parent="Margin/MarginText/Container/Display"]
+margin_top = 204.0
+margin_right = 640.0
+margin_bottom = 385.0
+focus_neighbour_bottom = NodePath("../../BtnContainer/BtnBack")
+focus_next = NodePath("../../BtnContainer/BtnBack")
+focus_mode = 2
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Hugo Witherman, a 25-year-old, college drop-out mechanics and his best friend Ian Zhan were caught stealing parts from a car charging post by a deputy.
+
+The two of them were taken to the sheriff station. Ian was bailed out by his mother and left Hugo. Ian later came back and helped Hugo escape the station. The two of them headed to the hill.
+
+At sunset, they sat together on a bench. The three vertical triangular prisms, served as cooling towers for Awith, stood still. As the night fell, the town began to become busy.
+
+Ian proposed to head back to the town. As they were starting to leave, a lightning stroke the three cooling towers, and the whole town went dark."
+
+[node name="BtnContainer" type="HBoxContainer" parent="Margin/MarginText/Container"]
+margin_top = 393.0
+margin_right = 640.0
+margin_bottom = 412.0
+size_flags_vertical = 8
+custom_constants/separation = 48
+alignment = 1
+
+[node name="BtnBack" type="Button" parent="Margin/MarginText/Container/BtnContainer"]
+margin_left = 220.0
+margin_right = 312.0
+margin_bottom = 19.0
+mouse_filter = 1
+size_flags_horizontal = 0
+disabled = true
+text = "< BACK"
+
+[node name="BtnExit" type="Button" parent="Margin/MarginText/Container/BtnContainer"]
+margin_left = 360.0
+margin_right = 420.0
+margin_bottom = 19.0
+mouse_filter = 1
+size_flags_horizontal = 0
+text = "EXIT"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Margin"]
+
+[node name="ScreenFX" type="ColorRect" parent="Margin/CanvasLayer"]
+visible = false
+material = ExtResource( 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Curosr" parent="." instance=ExtResource( 2 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/shut_down = SubResource( 3 )
+anims/start = SubResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="mouse_entered" from="Margin/MarginText" to="." method="_on_MarginText_mouse_entered"]
+[connection signal="mouse_exited" from="Margin/MarginText" to="." method="_on_MarginText_mouse_exited"]
+[connection signal="pressed" from="Margin/MarginText/Container/BtnContainer/BtnBack" to="." method="_on_BtnBack_pressed"]
+[connection signal="pressed" from="Margin/MarginText/Container/BtnContainer/BtnExit" to="." method="_on_BtnExit_pressed"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,144 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/bgs/bg_sky_cloud.png" type="Texture" id=3]
+[ext_resource path="res://common/settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://common/main_menu.gd" type="Script" id=5]
+[ext_resource path="res://prefabs/ui/theme_btn.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+extra_spacing_top = -22
+extra_spacing_bottom = -32
+extra_spacing_char = -8
+font_data = ExtResource( 2 )
+
+[node name="MainMenu" type="Node"]
+script = ExtResource( 5 )
+
+[node name="Bg" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="VBoxContainer" parent="Margin"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 928.0
+margin_bottom = 508.0
+alignment = 2
+
+[node name="Container" type="HBoxContainer" parent="Margin/UI"]
+margin_top = 258.0
+margin_right = 896.0
+margin_bottom = 458.0
+rect_min_size = Vector2( 0, 200 )
+custom_constants/separation = 8
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="Margin/UI/Container"]
+margin_right = 444.0
+margin_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "DAY
+LESS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnContainer" type="VBoxContainer" parent="Margin/UI/Container"]
+margin_left = 736.0
+margin_right = 896.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 160, 0 )
+size_flags_horizontal = 10
+custom_constants/separation = 0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnStart" type="Button" parent="Margin/UI/Container/BtnContainer"]
+margin_top = 72.0
+margin_right = 160.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "START"
+align = 2
+script = ExtResource( 6 )
+
+[node name="BtnCont" type="Button" parent="Margin/UI/Container/BtnContainer"]
+margin_top = 104.0
+margin_right = 160.0
+margin_bottom = 136.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+disabled = true
+text = "CONTINUE"
+align = 2
+script = ExtResource( 6 )
+
+[node name="BtnSettings" type="Button" parent="Margin/UI/Container/BtnContainer"]
+margin_top = 136.0
+margin_right = 160.0
+margin_bottom = 168.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "SETTINGS"
+align = 2
+script = ExtResource( 6 )
+
+[node name="BtnQuit" type="Button" parent="Margin/UI/Container/BtnContainer"]
+margin_top = 168.0
+margin_right = 160.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 1 )
+text = "QUIT"
+align = 2
+script = ExtResource( 6 )
+
+[node name="LabelVersion" type="Label" parent="Margin/UI"]
+margin_top = 462.0
+margin_right = 896.0
+margin_bottom = 476.0
+text = "VERSION 0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[connection signal="pressed" from="Margin/UI/Container/BtnContainer/BtnStart" to="." method="_on_BtnStart_pressed"]
+[connection signal="pressed" from="Margin/UI/Container/BtnContainer/BtnSettings" to="." method="_on_BtnSettings_pressed"]
+[connection signal="mouse_exited" from="Margin/UI/Container/BtnContainer/BtnQuit" to="." method="_on_BtnQuit_mouse_exited"]
+[connection signal="pressed" from="Margin/UI/Container/BtnContainer/BtnQuit" to="." method="_on_BtnQuit_pressed"]

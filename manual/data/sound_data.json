@@ -1,0 +1,44 @@
+{
+  "0":{
+    "name": "typing_0",
+    "type": "sfx",
+    "volume": -10,
+    "path": "res://assets/sounds/sfx/typing_0.wav"
+  },
+  "1":{
+    "name": "typing_1",
+    "type": "sfx",
+    "volume": -10,
+    "path": "res://assets/sounds/sfx/typing_1.wav"
+  },
+  "2":{
+    "name": "typing_2",
+    "type": "sfx",
+    "volume": -10,
+    "path": "res://assets/sounds/sfx/typing_2.wav"
+  },
+  "3":{
+    "name": "typing_3",
+    "type": "sfx",
+    "volume": -10,
+    "path": "res://assets/sounds/sfx/typing_3.wav"
+  },
+  "4":{
+    "name": "mouse_click",
+    "type": "sfx",
+    "volume": -8,
+    "path": "res://assets/sounds/sfx/mouse_click.wav"
+  },
+  "5": {
+    "name": "btn_hover",
+    "type": "sfx",
+    "volume": -12,
+    "path": "res://assets/sounds/sfx/btn_hover.wav"
+  },
+  "6": {
+    "name": "btn_click",
+    "type": "sfx",
+    "volume": -20,
+    "path": "res://assets/sounds/sfx/btn_click_alt.wav"
+  }
+}

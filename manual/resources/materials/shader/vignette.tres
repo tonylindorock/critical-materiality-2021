@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://assets/ui/vignette.png" type="Texture" id=1]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D vignette;
+
+void fragment() {
+	vec3 vignette_color = texture(vignette, UV).rgb;
+	// Screen texture stores gaussian blurred copies on mipmaps.
+	COLOR.rgb = texture(SCREEN_TEXTURE, SCREEN_UV, (1.0 - vignette_color.r)).rgb;
+	COLOR.rgb *= vignette_color;
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/vignette = ExtResource( 1 )
