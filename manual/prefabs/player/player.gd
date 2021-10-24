@@ -412,6 +412,11 @@ func check_for_interactive_obj():
 				_looking_item_id = InteractableItem.STATIONARY
 				_interact_item = obj
 				set_outline(OUTLINE_INTERACTIVE, OUTLINE_WIDTH_THICK)
+			elif obj.is_in_group("Door"):
+				#obj.highlight()
+				_looking_item_id = InteractableItem.STATIONARY
+				_interact_item = obj
+				set_outline(OUTLINE_INTERACTIVE, OUTLINE_WIDTH_THICK)
 				
 
 func set_outline(color : Color = OUTLINE_DEFAULT, width : float = OUTLINE_WIDTH_DEFAULT):

@@ -1,0 +1,14 @@
+[gd_resource type="SpatialMaterial" load_steps=5 format=2]
+
+[ext_resource path="res://assets/3d/map/texture/pipes_color.png" type="Texture" id=1]
+[ext_resource path="res://assets/3d/map/texture/pipes_normal.png" type="Texture" id=2]
+[ext_resource path="res://assets/3d/map/texture/pipes_metal.png" type="Texture" id=3]
+[ext_resource path="res://assets/3d/map/texture/pipes_rough.png" type="Texture" id=4]
+
+[resource]
+albedo_texture = ExtResource( 1 )
+metallic_texture = ExtResource( 3 )
+roughness_texture = ExtResource( 4 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 2 )
