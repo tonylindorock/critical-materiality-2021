@@ -7,9 +7,11 @@
 [node name="OmniLightSource" instance=ExtResource( 1 )]
 light_color = Color( 1, 0.686275, 0.196078, 1 )
 light_energy = 5.0
+shadow_enabled = true
+shadow_bias = 0.11
 omni_range = 2.5
 
 [node name="MeshInstance" parent="." index="0"]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.16875, 0 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, -0.195727, 0 )
 mesh = ExtResource( 2 )
 material/0 = ExtResource( 3 )

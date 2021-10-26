@@ -8,10 +8,12 @@
 light_color = Color( 1, 0.866667, 0.67451, 1 )
 light_energy = 2.0
 light_indirect_energy = 5.0
+shadow_enabled = true
 omni_range = 8.0
 omni_attenuation = 2.17638
 
 [node name="MeshInstance" parent="." index="0"]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -0.0552377 )
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -0.021759 )
+cast_shadow = 0
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 3 )
