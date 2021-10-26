@@ -109,6 +109,7 @@ onready var _ray_interact = $Head/Camera/RayInteract
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	current_speed = speed
 	
 	_camera_outline.fov = _camera.fov
 	_camera_outline.far = _camera.far
@@ -123,7 +124,7 @@ func _ready():
 func _process(delta):
 	check_for_interactive_obj()
 	_handle_weapon_sway(delta)
-	_handle_crouching(delta)
+	#_handle_crouching(delta)
 	
 	# sync other cameras with the main camera
 	_camera_gun.global_transform = _camera.global_transform
@@ -134,7 +135,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	_get_movement()
-	_handle_stamina(delta)
+	#_handle_stamina(delta)
 	
 	# gravity
 	if _ray_ground.is_colliding():
@@ -216,7 +217,7 @@ func _input(event):
 			else:
 				request_item_interaction()
 		
-			
+		"""
 		# run
 		if event.is_action_pressed("player_run") and _can_run and is_moving() and is_on_floor():
 			current_speed = run_speed
@@ -224,6 +225,7 @@ func _input(event):
 		elif event.is_action_released("player_run"):
 			current_speed = speed
 			_is_running = false
+		"""
 		
 		if event.is_action_pressed("player_flashlight"):
 			_flashlight.set_visible(!_flashlight.visible)

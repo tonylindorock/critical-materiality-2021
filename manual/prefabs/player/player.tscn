@@ -26,7 +26,7 @@ font_data = ExtResource( 6 )
 [node name="Player" type="KinematicBody"]
 collision_layer = 4
 script = ExtResource( 1 )
-speed = 9
+speed = 6
 crouch_speed = 5
 run_speed = 16
 sway_h = Vector3( 0, 0.15, 0.1 )
@@ -64,6 +64,7 @@ near = 0.01
 
 [node name="Flashlight" type="Spatial" parent="Head/Camera/Hand"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.143803, 0, 0 )
+visible = false
 
 [node name="SpotLight" type="SpotLight" parent="Head/Camera/Hand/Flashlight"]
 layers = 15

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/3d/miscellaneous/mesh/light_wall.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://prefabs/miscellaneous/omni_light_source.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/materials/lights.tres" type="Material" id=3]
+
+[node name="LightWall" instance=ExtResource( 2 )]
+light_color = Color( 1, 0.866667, 0.67451, 1 )
+light_energy = 2.0
+light_indirect_energy = 5.0
+omni_range = 8.0
+omni_attenuation = 2.17638
+
+[node name="MeshInstance" parent="." index="0"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -0.0552377 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 3 )

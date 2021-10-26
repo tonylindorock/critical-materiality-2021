@@ -19,3 +19,6 @@ material/2 = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="room/StaticBody" index="0"]
 shape = SubResource( 1 )
+
+[node name="male" parent="." index="1"]
+visible = false
