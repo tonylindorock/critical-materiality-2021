@@ -1,0 +1,110 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://common/material_preloader.gd" type="Script" id=1]
+[ext_resource path="res://resources/materials/pine_tree_trunk.tres" type="Material" id=2]
+[ext_resource path="res://resources/materials/grass_green.tres" type="Material" id=3]
+[ext_resource path="res://resources/materials/grass_tall_brown.tres" type="Material" id=4]
+[ext_resource path="res://resources/materials/pine_tree_leaves.tres" type="Material" id=5]
+[ext_resource path="res://resources/materials/bush.tres" type="Material" id=6]
+[ext_resource path="res://resources/materials/pipes.tres" type="Material" id=7]
+[ext_resource path="res://resources/materials/room.tres" type="Material" id=8]
+[ext_resource path="res://resources/materials/shower.tres" type="Material" id=9]
+[ext_resource path="res://resources/materials/bunker_door.tres" type="Material" id=10]
+[ext_resource path="res://resources/materials/lights.tres" type="Material" id=11]
+[ext_resource path="res://resources/materials/g_launcher.tres" type="Material" id=12]
+[ext_resource path="res://resources/materials/bedroom.tres" type="Material" id=13]
+[ext_resource path="res://resources/materials/board.tres" type="Material" id=14]
+[ext_resource path="res://resources/materials/medkit.tres" type="Material" id=15]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 0.1, 0.1 )
+
+[node name="MaterialPreloader" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="TreeTrunk" type="MeshInstance" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="Leaves" type="MeshInstance" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 5 )
+
+[node name="Grass" type="MeshInstance" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 3 )
+
+[node name="GrassBrown" type="MeshInstance" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 4 )
+
+[node name="Bush" type="MeshInstance" parent="."]
+visible = false
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 6 )
+
+[node name="room" type="MeshInstance" parent="."]
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 8 )
+
+[node name="shower" type="MeshInstance" parent="."]
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 9 )
+
+[node name="pipes" type="MeshInstance" parent="."]
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 7 )
+
+[node name="door" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 10 )
+
+[node name="empty" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="lights" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 11 )
+
+[node name="g_launcher" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 12 )
+
+[node name="bedroom" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 13 )
+
+[node name="board" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 14 )
+
+[node name="medkit" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00075262, 0 )
+cast_shadow = 0
+mesh = SubResource( 1 )
+material/0 = ExtResource( 15 )
