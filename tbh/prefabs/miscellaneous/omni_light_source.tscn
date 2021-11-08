@@ -1,5 +1,7 @@
 [gd_scene format=2]
 
-[node name="OmniLightSource" type="OmniLight"]
+[node name="OmniLightSource" type="Spatial"]
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
+
+[node name="OmniLight" type="OmniLight" parent="."]
