@@ -86,9 +86,9 @@ __meta__ = {
 }
 
 [node name="BtnBack" type="Button" parent="Margin/Container/BtnContainer"]
-margin_top = 1.0
+margin_top = 33.0
 margin_right = 160.0
-margin_bottom = 33.0
+margin_bottom = 65.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -96,6 +96,7 @@ text = "BACK"
 align = 2
 
 [node name="BtnSettings" type="Button" parent="Margin/Container/BtnContainer"]
+visible = false
 margin_top = 33.0
 margin_right = 160.0
 margin_bottom = 65.0

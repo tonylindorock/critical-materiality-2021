@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://prefabs/player/player.gd" type="Script" id=1]
 [ext_resource path="res://common/pause_screen.tscn" type="PackedScene" id=5]
@@ -8,6 +8,22 @@
 [ext_resource path="res://common/material_preloader.tscn" type="PackedScene" id=12]
 [ext_resource path="res://common/terminal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/objects/item_spawn.tscn" type="PackedScene" id=14]
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 4, 4, 4 )
+
+[sub_resource type="SpatialMaterial" id=7]
+params_blend_mode = 1
+params_cull_mode = 2
+params_depth_draw_mode = 3
+roughness = 0.0
+transmission_enabled = true
+transmission = Color( 0.501961, 0.556863, 0.556863, 1 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 7 )
+size = Vector2( 0.01, 0.2 )
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -29,8 +45,17 @@ script = ExtResource( 1 )
 speed = 6
 crouch_speed = 5
 run_speed = 16
+jump_s = 12
 sway_h = Vector3( 0, 0.15, 0.1 )
 sway_v = Vector3( 0.1, 0, 0 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4444, 0 )
+amount = 32
+speed_scale = 2.0
+local_coords = false
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.38836, 0 )
@@ -59,6 +84,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45987, 0 )
 [node name="Camera" type="Camera" parent="Head"]
 cull_mask = 1048569
 near = 0.01
+far = 200.0
 
 [node name="Hand" type="Spatial" parent="Head/Camera"]
 

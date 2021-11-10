@@ -40,5 +40,17 @@
     "type": "sfx",
     "volume": -20,
     "path": "res://assets/sounds/sfx/btn_click_alt.wav"
+  },
+  "7": {
+    "name": "music_hill",
+    "type": "music",
+    "volume": -10,
+    "path": "res://assets/sounds/music/music_hill.ogg"
+  },
+  "8": {
+    "name": "ambience_siren",
+    "type": "ambience",
+    "volume": -15,
+    "path": "res://assets/sounds/ambience/ambience_siren.ogg"
   }
 }

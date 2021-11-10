@@ -18,3 +18,24 @@ func play_sfx(id):
 		_sfx_stream.stream = load(sound["path"])
 		_sfx_stream.volume_db = sound["volume"]
 		_sfx_stream.play()
+
+
+func play_music(id, delay:float = 0.0):
+	var sound = Core.find_sound(id)
+	if sound:
+		if delay > 0.0:
+			yield(get_tree().create_timer(delay), "timeout")
+		_music_stream.stream = load(sound["path"])
+		_music_stream.volume_db = sound["volume"]
+		_music_stream.play()
+
+
+func play_ambience(id, delay:float = 0.0):
+	var sound = Core.find_sound(id)
+	if sound:
+		if delay > 0.0:
+			yield(get_tree().create_timer(delay), "timeout")
+		_ambience_stream.stream = load(sound["path"])
+		_ambience_stream.volume_db = sound["volume"]
+		_ambience_stream.play()
+

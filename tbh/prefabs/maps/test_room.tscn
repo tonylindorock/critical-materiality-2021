@@ -30,10 +30,10 @@
 [ext_resource path="res://resources/materials/magnum_rounds.tres" type="Material" id=35]
 
 [sub_resource type="Environment" id=1]
-background_energy = 0.5
-ambient_light_color = Color( 0.054902, 0.054902, 0.054902, 1 )
+background_color = Color( 0.494118, 0.494118, 0.494118, 1 )
+ambient_light_color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
 fog_enabled = true
-fog_color = Color( 0.619608, 0.619608, 0.619608, 1 )
+fog_color = Color( 0.443137, 0.443137, 0.443137, 1 )
 fog_sun_color = Color( 0, 0, 0, 1 )
 fog_transmit_enabled = true
 fog_height_enabled = true
@@ -116,7 +116,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.7014
 
 [node name="OmniLight" parent="Lighting/LightWall5" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324292, 0.0873127 )
-light_energy = 1.0
 
 [node name="SpotLight" parent="Lighting/LightWall5" index="2"]
 light_energy = 1.0
@@ -126,16 +125,6 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.43276
 
 [node name="LightWall7" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.39867, 3.94178, 12.3468 )
-
-[node name="SpotLight" type="SpotLight" parent="Lighting"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 5.90223, 5.25645, 0 )
-visible = false
-light_color = Color( 1, 0.92549, 0.74902, 1 )
-light_energy = 10.0
-shadow_enabled = true
-shadow_bias = 3.05
-shadow_reverse_cull_face = true
-spot_angle = 68.2
 
 [node name="Furnitures" type="Spatial" parent="."]
 
@@ -280,6 +269,11 @@ mesh = ExtResource( 18 )
 material/0 = ExtResource( 24 )
 
 [node name="Filler" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Filler"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 21.578 )
+mesh = ExtResource( 11 )
+material/0 = null
 
 [node name="ProjectileGrenade" parent="Filler" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.24881, 1.42954, 4.14364 )

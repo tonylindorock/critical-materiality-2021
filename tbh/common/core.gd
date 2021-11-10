@@ -73,7 +73,7 @@ func find_sound(id):
 		elif typeof(id) == TYPE_STRING:
 			for element in _sound_data.keys():
 				if _sound_data[element]["name"] == id:
-					return element
+					return _sound_data[element]
 		print("WARNING: id_" + id + " Sound not found.")
 		return null
 	else:
