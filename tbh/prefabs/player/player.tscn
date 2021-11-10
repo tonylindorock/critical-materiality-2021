@@ -9,11 +9,15 @@
 [ext_resource path="res://common/terminal.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/objects/item_spawn.tscn" type="PackedScene" id=14]
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 4, 4, 4 )
+flag_rotate_y = true
+angular_velocity = 5.0
+scale = 2.0
+scale_random = 1.0
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=2]
 params_blend_mode = 1
 params_cull_mode = 2
 params_depth_draw_mode = 3
@@ -21,22 +25,22 @@ roughness = 0.0
 transmission_enabled = true
 transmission = Color( 0.501961, 0.556863, 0.556863, 1 )
 
-[sub_resource type="QuadMesh" id=6]
-material = SubResource( 7 )
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
 size = Vector2( 0.01, 0.2 )
 
-[sub_resource type="CapsuleShape" id=1]
+[sub_resource type="CapsuleShape" id=4]
 radius = 0.5
 height = 1.8
 
-[sub_resource type="CapsuleMesh" id=2]
+[sub_resource type="CapsuleMesh" id=5]
 radius = 0.5
 mid_height = 1.8
 
-[sub_resource type="BoxShape" id=3]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.491187, 0.263691, 0.510933 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 6 )
 
 [node name="Player" type="KinematicBody"]
@@ -51,21 +55,22 @@ sway_v = Vector3( 0.1, 0, 0 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4444, 0 )
+emitting = false
 amount = 32
 speed_scale = 2.0
 local_coords = false
-process_material = SubResource( 5 )
-draw_pass_1 = SubResource( 6 )
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 3 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.38836, 0 )
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.3895, 0 )
 visible = false
 cast_shadow = 0
-mesh = SubResource( 2 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="AreaGround" type="Area" parent="."]
@@ -76,7 +81,7 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="AreaGround"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.316055, 0 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="Head" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45987, 0 )
@@ -84,7 +89,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.45987, 0 )
 [node name="Camera" type="Camera" parent="Head"]
 cull_mask = 1048569
 near = 0.01
-far = 200.0
+far = 400.0
 
 [node name="Hand" type="Spatial" parent="Head/Camera"]
 
@@ -241,7 +246,7 @@ visible = false
 anchor_right = 1.0
 margin_top = 16.0
 margin_bottom = 48.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "IN GAME"
 align = 1
 valign = 1

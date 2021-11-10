@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/3d/environment/mesh/light_pole_standard001.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://resources/materials/street_lights.tres" type="Material" id=2]
+
+[node name="StreetLight" type="Spatial"]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8355, 6.2014, 0 )
+light_color = Color( 1, 0.937255, 0.823529, 1 )
+light_energy = 2.0
+light_indirect_energy = 10.0
+shadow_enabled = true
+omni_range = 8.0
+
+[node name="SpotLight" type="SpotLight" parent="."]
+transform = Transform( 0.974527, 1.08986e-07, 0.22427, -0.22427, -9.00085e-08, 0.974527, 1.26396e-07, -1, -6.32734e-08, -2.83706, 8.35853, -3.65363e-07 )
+light_color = Color( 1, 0.929412, 0.792157, 1 )
+light_energy = 10.0
+light_indirect_energy = 10.0
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = 2.82843
+spot_angle = 60.0
+spot_angle_attenuation = 0.707105

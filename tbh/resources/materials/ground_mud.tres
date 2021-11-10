@@ -5,10 +5,11 @@
 [ext_resource path="res://assets/3d/map/texture/brown_mud_leaves_01_diff_1k.jpg" type="Texture" id=3]
 
 [resource]
+flags_world_triplanar = true
 albedo_texture = ExtResource( 3 )
 roughness_texture = ExtResource( 2 )
 normal_enabled = true
 normal_scale = 1.0
 normal_texture = ExtResource( 1 )
-uv1_scale = Vector3( 2, 2, 2 )
+uv1_scale = Vector3( 0.25, 0.25, 0.25 )
 uv1_triplanar = true
