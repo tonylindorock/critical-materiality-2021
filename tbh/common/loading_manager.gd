@@ -14,6 +14,7 @@ onready var _progress = $CanvasLayer/UI/Margin/Container/Progress
 
 func _ready():
 	_ui.hide()
+	update_current_scene()
 	set_process(false)
 
 
@@ -25,17 +26,22 @@ func set_current_scene(scene):
 func update_current_scene():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
-	print("New current scene is: ")
-	print(current_scene.name)
+	
+
+func reset():
+	$AnimationPlayer.play("RESET")
+	_progress.value = 0
 
 
 func goto_scene(path): # Game requests to switch to this scene.
+	_ui.show()
+	
 	loader = ResourceLoader.load_interactive(path)
 	if loader == null: # Check for errors.
 		#show_error()
 		return
 	set_process(true)
-	_ui.show()
+	
 	
 	if is_instance_valid(current_scene):
 		current_scene.queue_free() # Get rid of the old scene.
@@ -95,4 +101,5 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if anim_name == "open":
 		_ui.hide()
 		is_loading = false
+		reset()
 		set_process(false)
