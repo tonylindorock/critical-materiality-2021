@@ -27,10 +27,13 @@ func open():
 	is_opened = true
 	print("door opened")
 	
+	$bunker_door/AnimationPlayer.play("open")
+	
 	if fade_out_ambience:
 		SoundManager.fade_out_ambience()
 	
 	if portal_to != "":
+		yield(get_tree().create_timer(0.7), "timeout")
 		LoadingScreen.goto_scene(portal_to)
 	
 	

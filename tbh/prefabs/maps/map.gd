@@ -10,6 +10,7 @@ export var weather := -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.set_world_manager(self)
+	LoadingScreen.set_current_scene(self)
 	setup()
 	
 

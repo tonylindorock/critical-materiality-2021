@@ -14,9 +14,19 @@ onready var _progress = $CanvasLayer/UI/Margin/Container/Progress
 
 func _ready():
 	_ui.hide()
+	set_process(false)
+
+
+func set_current_scene(scene):
+	current_scene = scene
+	print("Current scene is: " + current_scene.name)
+
+
+func update_current_scene():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
-	set_process(false)
+	print("New current scene is: ")
+	print(current_scene.name)
 
 
 func goto_scene(path): # Game requests to switch to this scene.
@@ -26,8 +36,12 @@ func goto_scene(path): # Game requests to switch to this scene.
 		return
 	set_process(true)
 	_ui.show()
-
-	current_scene.queue_free() # Get rid of the old scene.
+	
+	if is_instance_valid(current_scene):
+		current_scene.queue_free() # Get rid of the old scene.
+	else:
+		loader = null
+		print("ERROR: Can't delete current scene because it doesn't exist.")
 
 	wait_frames = 1
 	is_loading = true

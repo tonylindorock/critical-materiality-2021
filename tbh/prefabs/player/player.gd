@@ -374,7 +374,7 @@ func change_health(amount):
 		print("ERROR: " + str(amount) + " is not a number!")
 
 
-func _handle_ads(delta):
+func _handle_ads(_delta):
 	pass
 		
 
