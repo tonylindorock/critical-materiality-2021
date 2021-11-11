@@ -25,26 +25,26 @@ size = Vector3( 25, 90, 30 )
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.333333, 0.333333, 0.333333, 1 )
 
-[sub_resource type="CubeMesh" id=12]
+[sub_resource type="CubeMesh" id=3]
 size = Vector3( 40, 300, 40 )
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="CubeMesh" id=4]
 size = Vector3( 25, 120, 40 )
 
-[sub_resource type="QuadMesh" id=4]
+[sub_resource type="QuadMesh" id=5]
 size = Vector2( 200, 20 )
 
-[sub_resource type="QuadMesh" id=7]
+[sub_resource type="QuadMesh" id=6]
 size = Vector2( 100, 16 )
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=7]
 albedo_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+
+[sub_resource type="QuadMesh" id=8]
 
 [sub_resource type="QuadMesh" id=9]
 
-[sub_resource type="QuadMesh" id=5]
-
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=10]
 albedo_texture = ExtResource( 15 )
 roughness_texture = ExtResource( 16 )
 uv1_scale = Vector3( 8, 8, 8 )
@@ -53,7 +53,7 @@ uv1_triplanar = true
 [sub_resource type="SpatialMaterial" id=11]
 params_blend_mode = 1
 
-[sub_resource type="CubeMesh" id=10]
+[sub_resource type="CubeMesh" id=12]
 material = SubResource( 11 )
 flip_faces = true
 size = Vector3( 300, 200, 300 )
@@ -213,12 +213,12 @@ material/0 = SubResource( 2 )
 
 [node name="skyscraper7" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 245.046, 129.608, -195.455 )
-mesh = SubResource( 12 )
+mesh = SubResource( 3 )
 material/0 = SubResource( 2 )
 
 [node name="skyscraper3" type="MeshInstance" parent="Buildings"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.1952, 57.7828, 112.851 )
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 material/0 = SubResource( 2 )
 
 [node name="skyscraper4" type="MeshInstance" parent="Buildings"]
@@ -238,35 +238,37 @@ material/0 = SubResource( 2 )
 
 [node name="skyscraper5" type="MeshInstance" parent="Buildings"]
 transform = Transform( -2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 68.3244, 45.5776, -138.908 )
-mesh = SubResource( 3 )
+mesh = SubResource( 4 )
 material/0 = SubResource( 2 )
 
 [node name="BuildingBlock" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 89.719, -5.70863, 56.85 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = SubResource( 2 )
 
 [node name="BuildingBlock2" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -6.35282, -0.372567, -113.525 )
 visible = false
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = SubResource( 2 )
 
 [node name="BuildingBlock3" type="MeshInstance" parent="Buildings"]
 transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -92.6538, -0.372567, -11.5755 )
 visible = false
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = SubResource( 2 )
 
 [node name="BuildingBlock4" type="MeshInstance" parent="Buildings"]
 transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -6.01913, -0.372567, 81.1762 )
-mesh = SubResource( 4 )
+mesh = SubResource( 5 )
 material/0 = SubResource( 2 )
 
 [node name="Props" type="Spatial" parent="."]
 
 [node name="Door" parent="Props" instance=ExtResource( 9 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.07873, 1.08552, -1.73449 )
+portal_to = "res://prefabs/maps/test_room.tscn"
+fade_out_ambience = true
 
 [node name="PicnicTable" parent="Props" instance=ExtResource( 13 )]
 transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 0, 0, -10.2323 )
@@ -281,65 +283,65 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000518799, -14.2808, -0.0021
 
 [node name="road" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -32.142 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road4" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -104.048, 0, -32.142 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road10" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -104.048, 0, -16.2127 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road9" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -104.048, 0, -96.0982 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road6" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 44.1567, 0, -100.906 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road7" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 44.1567, 0, -1.6438 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road2" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 32.2326 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road8" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 102.427, 0, 32.2326 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road3" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -46.2116, 0, 2.13111 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="road5" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -46.2116, 0, -98.3275 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="grass" type="MeshInstance" parent="Road"]
 transform = Transform( 42.6502, 0, 0, 0, -1.8643e-06, 42.6502, 0, -21.0118, -9.18454e-07, 13.8938, 0, -51.4409 )
-mesh = SubResource( 9 )
+mesh = SubResource( 8 )
 material/0 = ExtResource( 17 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Road"]
 transform = Transform( 317.948, 0, 0, 0, -1.38979e-05, 317.948, 0, -317.948, -1.38979e-05, 0, -0.201366, 0 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 6 )
+mesh = SubResource( 9 )
+material/0 = SubResource( 10 )
 
 [node name="Box" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80.2362, 0 )
-mesh = SubResource( 10 )
+mesh = SubResource( 12 )
 material/0 = null

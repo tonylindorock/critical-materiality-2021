@@ -1,5 +1,10 @@
 extends StaticBody
 
+# path to a scene
+export var portal_to = ""
+export var fade_out_ambience := false
+export var fade_out_music := false
+
 var is_opened := false
 
 
@@ -15,5 +20,17 @@ func _ready():
 
 func _on_Area_body_entered(body):
 	if body == Global.get_player() and !is_opened:
-		is_opened = true
-		print("door open")
+		open()
+
+
+func open():
+	is_opened = true
+	print("door opened")
+	
+	if fade_out_ambience:
+		SoundManager.fade_out_ambience()
+	
+	if portal_to != "":
+		LoadingScreen.goto_scene(portal_to)
+	
+	

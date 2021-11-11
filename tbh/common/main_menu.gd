@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_BtnStart_pressed():
-	LoadingScreen.goto_scene("res://common/run.tscn")
+	LoadingScreen.goto_scene("res://prefabs/maps/test_surface.tscn")
 
 
 func _on_BtnSettings_pressed():

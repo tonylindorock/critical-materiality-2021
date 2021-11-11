@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Bunker House"
-run/main_scene="res://common/run.tscn"
+run/main_scene="res://prefabs/maps/test_room.tscn"
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon_app_alt.png"

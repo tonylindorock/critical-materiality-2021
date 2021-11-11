@@ -17,3 +17,5 @@ bus = "Music"
 
 [node name="AmbienceStream" type="AudioStreamPlayer" parent="."]
 bus = "Ambience"
+
+[node name="TweenOut" type="Tween" parent="."]

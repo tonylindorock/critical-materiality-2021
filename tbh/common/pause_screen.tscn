@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://resources/main_theme.tres" type="Theme" id=2]
 [ext_resource path="res://common/settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://common/pause_screen.gd" type="Script" id=4]
 [ext_resource path="res://resources/materials/shader/shader_blur.tres" type="Material" id=5]
+[ext_resource path="res://prefabs/ui/theme_btn.gd" type="Script" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -94,6 +95,7 @@ size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "BACK"
 align = 2
+script = ExtResource( 6 )
 
 [node name="BtnSettings" type="Button" parent="Margin/Container/BtnContainer"]
 visible = false
@@ -105,6 +107,7 @@ size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "SETTINGS"
 align = 2
+script = ExtResource( 6 )
 
 [node name="BtnQuit" type="Button" parent="Margin/Container/BtnContainer"]
 margin_top = 65.0
@@ -115,6 +118,7 @@ size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "QUIT"
 align = 2
+script = ExtResource( 6 )
 
 [node name="Settings" parent="." instance=ExtResource( 3 )]
 visible = false

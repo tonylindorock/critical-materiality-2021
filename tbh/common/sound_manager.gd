@@ -1,5 +1,6 @@
 extends Node
 
+const LOWEST_DB = -61
 
 onready var _ui_stream = $UIStream
 onready var _sfx_stream = $SFXStream
@@ -39,3 +40,8 @@ func play_ambience(id, delay:float = 0.0):
 		_ambience_stream.volume_db = sound["volume"]
 		_ambience_stream.play()
 
+
+func fade_out_ambience(duration:float = 1.0, delay:float = 0.0):
+	$TweenOut.interpolate_property(_ambience_stream, "volume_db", _ambience_stream.volume_db, LOWEST_DB, duration,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
+	$TweenOut.start()
