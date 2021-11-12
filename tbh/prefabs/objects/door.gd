@@ -1,5 +1,6 @@
 extends StaticBody
 
+export var enabled := true
 # path to a scene
 export var portal_to = ""
 export var fade_out_ambience := false
@@ -19,8 +20,9 @@ func _ready():
 
 
 func _on_Area_body_entered(body):
-	if body == Global.get_player() and !is_opened:
-		open()
+	if enabled:
+		if body == Global.get_player() and !is_opened:
+			open()
 
 
 func open():

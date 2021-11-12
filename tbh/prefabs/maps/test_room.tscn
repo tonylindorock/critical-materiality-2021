@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://prefabs/maps/room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=2]
@@ -49,6 +49,50 @@ glow_strength = 0.95
 glow_bloom = 0.3
 glow_blend_mode = 1
 
+[sub_resource type="GDScript" id=11]
+script/source = "extends StaticBody
+
+export var enabled := true
+# path to a scene
+export var portal_to = \"\"
+export var fade_out_ambience := false
+export var fade_out_music := false
+
+var is_opened := false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Area_body_entered(body):
+	if enabled:
+		if body == Global.get_player() and !is_opened:
+			open()
+
+
+func open():
+	is_opened = true
+	print(\"door opened\")
+	
+	$bunker_door/AnimationPlayer.play(\"open\")
+	
+	if fade_out_ambience:
+		SoundManager.fade_out_ambience()
+	
+	if portal_to != \"\":
+		yield(get_tree().create_timer(0.7), \"timeout\")
+		LoadingScreen.goto_scene(portal_to)
+	
+	
+"
+
 [sub_resource type="ConcavePolygonShape" id=2]
 data = PoolVector3Array( -0.559, -0.0001, 0.2862, -0.559, 1.838, -0.2862, -0.559, 1.838, 0.2862, -0.559, -0.0001, 0.2862, -0.559, -0.0001, -0.2862, -0.559, 1.838, -0.2862, -0.559, -0.0001, -0.2862, 0.559, 1.838, -0.2862, -0.559, 1.838, -0.2862, -0.559, -0.0001, -0.2862, 0.559, -0.0001, -0.2862, 0.559, 1.838, -0.2862, 0.559, -0.0001, -0.2862, 0.559, 1.838, 0.2862, 0.559, 1.838, -0.2862, 0.559, -0.0001, -0.2862, 0.559, -0.0001, 0.2862, 0.559, 1.838, 0.2862, 0.559, -0.0001, 0.2862, -0.559, 1.838, 0.2862, 0.559, 1.838, 0.2862, 0.559, -0.0001, 0.2862, -0.559, -0.0001, 0.2862, -0.559, 1.838, 0.2862, -0.559, -0.0001, -0.2862, 0.559, -0.0001, 0.2862, 0.559, -0.0001, -0.2862, -0.559, -0.0001, -0.2862, -0.559, -0.0001, 0.2862, 0.559, -0.0001, 0.2862, 0.559, 1.838, -0.2862, -0.559, 1.838, 0.2862, -0.559, 1.838, -0.2862, 0.559, 1.838, -0.2862, 0.559, 1.838, 0.2862, -0.559, 1.838, 0.2862 )
 
@@ -78,6 +122,7 @@ data = PoolVector3Array( -0.4619, -0.4619, 0.4619, -0.4619, 1.5911, -0.4619, -0.
 
 [node name="TestRoom" type="Spatial"]
 script = ExtResource( 27 )
+id = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -91,6 +136,11 @@ speed = 5
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.203 )
+
+[node name="Door2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 23.5048 )
+script = SubResource( 11 )
+enabled = false
 
 [node name="Lighting" type="Spatial" parent="."]
 

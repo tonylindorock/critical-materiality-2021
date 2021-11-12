@@ -55,6 +55,7 @@ sway_v = Vector3( 0.1, 0, 0 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.4444, 0 )
+visible = false
 emitting = false
 amount = 32
 speed_scale = 2.0

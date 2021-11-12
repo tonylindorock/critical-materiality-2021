@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/3d/environment/mesh/tree.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://prefabs/environment/tree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://resources/materials/oak_tree_trunk.tres" type="Material" id=3]
+[ext_resource path="res://resources/materials/oak_tree_leaves.tres" type="Material" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.2, 3.5, 0.2 )
+
+[node name="OakTree" instance=ExtResource( 2 )]
+
+[node name="MeshInstance" parent="." index="0"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 3 )
+material/1 = ExtResource( 4 )
+
+[node name="CollisionShape" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4726, 0 )
+shape = SubResource( 1 )

@@ -1,0 +1,49 @@
+{
+  "0": {
+    "name": "map_surface",
+    "materials": [
+      "ground_mud",
+      "apartment_0",
+      "apartment_1",
+      "apartment_2",
+      "apartment_3",
+      "apartment_4",
+      "apartment_5",
+      "lights",
+      "street_lights",
+      "plank_wall",
+      "concrete",
+      "grass_green",
+      "weed_0",
+      "pine_tree_leaves",
+      "pine_tree_trunk",
+      "far_apartment_tall",
+      "far_apartment_wide",
+      "far_skyscraper",
+      "bunker_door",
+      "surface_wood_0",
+      "far_road",
+      "far_concrete",
+      "box_foggy",
+      "oak_tree_leaves",
+      "oak_tree_leaves_yellow",
+      "oak_tree_trunk",
+      "light_flare"
+    ]
+  },
+  "1": {
+    "name": "map_room",
+    "materials": [
+      "room",
+      "shower",
+      "pipes",
+      "bunker_door",
+      "lights",
+      "g_launcher",
+      "bedroom",
+      "board",
+      "medkit",
+      "magnum_rounds"
+    ]
+  }
+}

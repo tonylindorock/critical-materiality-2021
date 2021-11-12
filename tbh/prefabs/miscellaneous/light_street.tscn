@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/3d/environment/mesh/light_pole_standard001.mesh" type="ArrayMesh" id=1]
 [ext_resource path="res://resources/materials/street_lights.tres" type="Material" id=2]
+[ext_resource path="res://assets/3d/miscellaneous/texture/flare.png" type="Texture" id=3]
+[ext_resource path="res://resources/materials/light_flare.tres" type="Material" id=4]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.682, 0.06, 0.238 )
+
+[sub_resource type="SpatialMaterial" id=2]
+params_blend_mode = 1
+albedo_color = Color( 1, 0.827451, 0.372549, 1 )
+emission_enabled = true
+emission = Color( 1, 0.827451, 0.372549, 1 )
+emission_energy = 10.0
+emission_operator = 0
+emission_on_uv2 = false
 
 [node name="StreetLight" type="Spatial"]
 
@@ -28,3 +42,18 @@ spot_range = 20.0
 spot_attenuation = 2.82843
 spot_angle = 60.0
 spot_angle_attenuation = 0.707105
+
+[node name="Flare" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87974, 8.36442, 0 )
+material_override = ExtResource( 4 )
+cast_shadow = 0
+billboard = 1
+double_sided = false
+alpha_cut = 2
+texture = ExtResource( 3 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="."]
+transform = Transform( 0.986481, 0.163877, 0, -0.163877, 0.986481, 0, 0, 0, 1, -2.81845, 8.34617, 0 )
+visible = false
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )

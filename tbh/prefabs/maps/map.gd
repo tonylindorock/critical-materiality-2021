@@ -1,5 +1,6 @@
 extends Spatial
 
+export var id := -1
 
 export var music_id = ""
 export var ambience_id = ""
@@ -17,6 +18,8 @@ func _ready():
 func setup():
 	play_music()
 	set_weath()
+	
+	$Player/Head/Camera/MaterialPreloader.load_materials(id)
 
 
 func play_music():

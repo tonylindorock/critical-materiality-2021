@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://prefabs/maps/surface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=2]
@@ -14,67 +14,127 @@
 [ext_resource path="res://prefabs/maps/map.gd" type="Script" id=12]
 [ext_resource path="res://prefabs/environment/picnic_table.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/miscellaneous/area_no_return.tscn" type="PackedScene" id=14]
-[ext_resource path="res://assets/3d/map/texture/plaster_grey_04_diff_1k.jpg" type="Texture" id=15]
-[ext_resource path="res://assets/3d/map/texture/plaster_grey_04_rough_1k.jpg" type="Texture" id=16]
+[ext_resource path="res://resources/materials/far_road.tres" type="Material" id=15]
+[ext_resource path="res://resources/materials/far_concrete.tres" type="Material" id=16]
 [ext_resource path="res://resources/materials/ground_mud.tres" type="Material" id=17]
 [ext_resource path="res://prefabs/miscellaneous/light_street.tscn" type="PackedScene" id=18]
+[ext_resource path="res://resources/materials/box_foggy.tres" type="Material" id=19]
+[ext_resource path="res://resources/materials/far_skyscraper.tres" type="Material" id=20]
+[ext_resource path="res://prefabs/environment/oak_tree.tscn" type="PackedScene" id=21]
+[ext_resource path="res://resources/materials/oak_tree_leaves_yellow.tres" type="Material" id=22]
 
-[sub_resource type="CubeMesh" id=1]
-size = Vector3( 25, 90, 30 )
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 3, 0.25, 20 )
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0.333333, 0.333333, 0.333333, 1 )
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 10, 7, 16 )
 
 [sub_resource type="CubeMesh" id=3]
+size = Vector3( 25, 90, 30 )
+
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 40, 300, 40 )
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=6]
 size = Vector3( 25, 120, 40 )
 
-[sub_resource type="QuadMesh" id=5]
+[sub_resource type="QuadMesh" id=7]
 size = Vector2( 200, 20 )
 
-[sub_resource type="QuadMesh" id=6]
-size = Vector2( 100, 16 )
+[sub_resource type="GDScript" id=15]
+script/source = "extends StaticBody
 
-[sub_resource type="SpatialMaterial" id=7]
-albedo_color = Color( 0.109804, 0.109804, 0.109804, 1 )
+export var enabled := true
+# path to a scene
+export var portal_to = \"\"
+export var fade_out_ambience := false
+export var fade_out_music := false
+
+var is_opened := false
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+
+
+func _on_Area_body_entered(body):
+	if enabled:
+		if body == Global.get_player() and !is_opened:
+			open()
+
+
+func open():
+	is_opened = true
+	print(\"door opened\")
+	
+	$bunker_door/AnimationPlayer.play(\"open\")
+	
+	if fade_out_ambience:
+		SoundManager.fade_out_ambience()
+	
+	if portal_to != \"\":
+		yield(get_tree().create_timer(0.7), \"timeout\")
+		LoadingScreen.goto_scene(portal_to)
+	
+	
+"
 
 [sub_resource type="QuadMesh" id=8]
+size = Vector2( 100, 16 )
 
-[sub_resource type="QuadMesh" id=9]
+[sub_resource type="QuadMesh" id=10]
 
-[sub_resource type="SpatialMaterial" id=10]
-albedo_texture = ExtResource( 15 )
-roughness_texture = ExtResource( 16 )
-uv1_scale = Vector3( 8, 8, 8 )
-uv1_triplanar = true
+[sub_resource type="QuadMesh" id=11]
 
-[sub_resource type="SpatialMaterial" id=11]
-params_blend_mode = 1
-
-[sub_resource type="CubeMesh" id=12]
-material = SubResource( 11 )
+[sub_resource type="CubeMesh" id=14]
 flip_faces = true
 size = Vector3( 300, 200, 300 )
 
 [node name="TestSurface" type="Spatial"]
 script = ExtResource( 12 )
+id = 0
 ambience_id = "ambience_siren"
-weather = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 3 )
+
+[node name="Bound" type="StaticBody" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Bound"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 21.4202, 3.2345, 1.45412 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Bound"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -15.6581, 3.2345, 1.45412 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="Bound"]
+transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 3.12823, 3.2345, -14.8758 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="Bound"]
+transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, -4.37114e-08, 3.12823, 3.2345, 17.8149 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="Bound"]
+transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, -4.37114e-08, -0.531908, 10.2618, 12.4686 )
+shape = SubResource( 2 )
 
 [node name="surface" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.70341, 0 )
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 18.8965, 0.106774, 15.8621 )
 
 [node name="Lightings" type="Spatial" parent="."]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="Lightings"]
+[node name="Sun" type="DirectionalLight" parent="Lightings"]
 transform = Transform( -0.785954, -0.110572, 0.608317, 0, 0.983879, 0.178837, -0.618285, 0.140557, -0.773284, 0, 22.5272, 0 )
 light_color = Color( 0.847059, 0.988235, 1, 1 )
 light_energy = 0.5
@@ -90,7 +150,7 @@ transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -9.1544
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 12.1108, 4.59768, 5.34367 )
 
 [node name="LightWall4" parent="Lightings" instance=ExtResource( 11 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.4203, 4.59768, 15.9188 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.4203, 4.59768, 16.3464 )
 
 [node name="LightWall2" parent="Lightings" instance=ExtResource( 11 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4.66995, 4.59768, 5.34367 )
@@ -146,13 +206,33 @@ transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 33.022,
 transform = Transform( 0.783693, 0, 0.621148, 0, 1, 0, -0.621148, 0, 0.783693, -8.01477, 0.463705, -9.92863 )
 
 [node name="PineTreeSingle4" parent="Trees" instance=ExtResource( 4 )]
-transform = Transform( 0.0592541, 0, 0.998243, 0, 1, 0, -0.998243, 0, 0.0592541, 28.7693, 0.463705, -9.92863 )
+transform = Transform( 0.0592541, 0, 0.998243, 0, 1, 0, -0.998243, 0, 0.0592541, 28.7693, 0.463705, -4.44732 )
 
-[node name="PineTreeSingle2" parent="Trees" instance=ExtResource( 4 )]
-transform = Transform( 0.482487, 0, -0.539955, 0, 0.724117, 0, 0.539955, 0, 0.482487, 9.85714, 0.463705, -18.4933 )
+[node name="OakTree" parent="Trees" instance=ExtResource( 21 )]
+transform = Transform( 1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 28.1876, 0, -44.2128 )
 
-[node name="PineTreeSingle3" parent="Trees" instance=ExtResource( 4 )]
-transform = Transform( -1.02381, -6.04605e-05, -0.143746, -5.19083e-05, 1.03385, -6.508e-05, 0.143746, -5.72224e-05, -1.02381, -3.03447, 0.463705, -19.8126 )
+[node name="OakTree5" parent="Trees" instance=ExtResource( 21 )]
+transform = Transform( -0.068085, 0, 0.99768, 0, 1, 0, -0.99768, 0, -0.068085, 29.4381, 0, 11.3684 )
+
+[node name="MeshInstance" parent="Trees/OakTree5" index="0"]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, -11.4338, 0, -5.6726 )
+material/1 = ExtResource( 22 )
+
+[node name="OakTree4" parent="Trees" instance=ExtResource( 21 )]
+transform = Transform( 0.646497, 0, -0.762917, 0, 1, 0, 0.762917, 0, 0.646497, 1.71292, 0, -46.0289 )
+
+[node name="MeshInstance" parent="Trees/OakTree4" index="0"]
+material/1 = ExtResource( 22 )
+
+[node name="OakTree3" parent="Trees" instance=ExtResource( 21 )]
+transform = Transform( 0.364519, 0, 0.931196, 0, 1, 0, -0.931196, 0, 0.364519, -35.2002, 0, -14.6469 )
+
+[node name="OakTree6" parent="Trees" instance=ExtResource( 21 )]
+transform = Transform( -0.815373, 0, 0.183962, 0, 0.835868, 0, -0.183962, 0, -0.815373, -22.977, 0, -1.52103 )
+
+[node name="MeshInstance" parent="Trees/OakTree6" index="0"]
+transform = Transform( 3.86767, 0, 2.98023e-07, 0, 3.86767, 0, -2.98023e-07, 0, 3.86767, -1.93018, 0, -7.25939 )
+material/1 = ExtResource( 22 )
 
 [node name="Buildings" type="Spatial" parent="."]
 
@@ -198,70 +278,70 @@ material/0 = ExtResource( 8 )
 
 [node name="skyscraper" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -97.8048, 44.8452, -56.2017 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper6" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -115.95, 44.8452, -127.993 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper2" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 87.7966, 44.8452, 69.3757 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper7" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 245.046, 129.608, -195.455 )
-mesh = SubResource( 3 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 5 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper3" type="MeshInstance" parent="Buildings"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.1952, 57.7828, 112.851 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper4" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.109, 44.8452, -6.78468 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper9" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 126.131, 44.6459, -126.104 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper8" type="MeshInstance" parent="Buildings"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 218.041, 37.2229, -122.611 )
-mesh = SubResource( 1 )
-material/0 = SubResource( 2 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 264.831, 37.2229, -176.189 )
+mesh = SubResource( 3 )
+material/0 = ExtResource( 20 )
 
 [node name="skyscraper5" type="MeshInstance" parent="Buildings"]
 transform = Transform( -2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 68.3244, 45.5776, -138.908 )
-mesh = SubResource( 4 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 6 )
+material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 89.719, -5.70863, 56.85 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 7 )
+material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock2" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -6.35282, -0.372567, -113.525 )
 visible = false
-mesh = SubResource( 5 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 7 )
+material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock3" type="MeshInstance" parent="Buildings"]
 transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -92.6538, -0.372567, -11.5755 )
 visible = false
-mesh = SubResource( 5 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 7 )
+material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock4" type="MeshInstance" parent="Buildings"]
 transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -6.01913, -0.372567, 81.1762 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 2 )
+mesh = SubResource( 7 )
+material/0 = ExtResource( 20 )
 
 [node name="Props" type="Spatial" parent="."]
 
@@ -270,6 +350,11 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.0787
 portal_to = "res://prefabs/maps/test_room.tscn"
 fade_out_ambience = true
 
+[node name="Door2" parent="Props" instance=ExtResource( 9 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 19.0753, -2.18088, 21.2107 )
+script = SubResource( 15 )
+enabled = false
+
 [node name="PicnicTable" parent="Props" instance=ExtResource( 13 )]
 transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 0, 0, -10.2323 )
 
@@ -277,71 +362,75 @@ transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 0
 transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 8.84273, 0, -10.2323 )
 
 [node name="AreaNoReturn" parent="." instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000518799, -14.2808, -0.00212097 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000518799, -23.7108, -0.00212097 )
 
 [node name="Road" type="Spatial" parent="."]
 
 [node name="road" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -32.142 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road4" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -104.048, 0, -32.142 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road10" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -104.048, 0, -16.2127 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road9" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -104.048, 0, -96.0982 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road6" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 44.1567, 0, -100.906 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road7" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 44.1567, 0, -1.6438 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road2" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 32.2326 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road8" type="MeshInstance" parent="Road"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 102.427, 0, 32.2326 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road3" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -46.2116, 0, 2.13111 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="road5" type="MeshInstance" parent="Road"]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -46.2116, 0, -98.3275 )
-mesh = SubResource( 6 )
-material/0 = SubResource( 7 )
+mesh = SubResource( 8 )
+material/0 = ExtResource( 15 )
 
 [node name="grass" type="MeshInstance" parent="Road"]
 transform = Transform( 42.6502, 0, 0, 0, -1.8643e-06, 42.6502, 0, -21.0118, -9.18454e-07, 13.8938, 0, -51.4409 )
-mesh = SubResource( 8 )
+mesh = SubResource( 10 )
 material/0 = ExtResource( 17 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Road"]
 transform = Transform( 317.948, 0, 0, 0, -1.38979e-05, 317.948, 0, -317.948, -1.38979e-05, 0, -0.201366, 0 )
-mesh = SubResource( 9 )
-material/0 = SubResource( 10 )
+mesh = SubResource( 11 )
+material/0 = ExtResource( 16 )
 
 [node name="Box" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80.2362, 0 )
-mesh = SubResource( 12 )
-material/0 = null
+mesh = SubResource( 14 )
+material/0 = ExtResource( 19 )
+
+[editable path="Trees/OakTree5"]
+[editable path="Trees/OakTree4"]
+[editable path="Trees/OakTree6"]

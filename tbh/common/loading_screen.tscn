@@ -12,7 +12,7 @@ extra_spacing_bottom = -32
 extra_spacing_char = -8
 font_data = ExtResource( 1 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "RESET"
 length = 0.1
 step = 0.5
@@ -53,8 +53,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "open"
+[sub_resource type="Animation" id=3]
 length = 4.0
 step = 0.5
 tracks/0/type = "value"
@@ -195,8 +194,8 @@ percent_visible = false
 script = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/RESET = SubResource( 3 )
-anims/open = SubResource( 2 )
+anims/RESET = SubResource( 2 )
+anims/open = SubResource( 3 )
 
 [connection signal="value_changed" from="CanvasLayer/UI/Margin/Container/Progress" to="CanvasLayer/UI/Margin/Container/Progress" method="_on_Progress_value_changed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

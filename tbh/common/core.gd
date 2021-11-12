@@ -22,6 +22,7 @@ const THEME_COLOR := Color("ff3c3c")
 var _item_data : Dictionary
 var _anim_data : Dictionary
 var _sound_data : Dictionary
+var _map_data : Dictionary
 
 var _terminal_configs : Dictionary
 
@@ -30,7 +31,7 @@ var _terminal_configs : Dictionary
 func _ready():
 	# load item data reference json file
 	_sound_data = load_json("res://data/sound_data.json")
-	
+	_map_data = load_json("res://data/map_data.json")
 	_terminal_configs = load_json("res://data/terminal_configs.json")
 
 
@@ -78,6 +79,31 @@ func find_sound(id):
 		return null
 	else:
 		print("ERROR: Sound data not loaded.")
+	return null
+
+
+func find_data(type: String, id):
+	var dict
+	match type:
+		"ITEM":
+			dict = _item_data
+		"SOUND":
+			dict = _sound_data
+		"MAP":
+			dict = _map_data
+			
+	if dict or !dict.empty():
+		if typeof(id) == TYPE_INT and id >= 0:
+			# return dict
+			return dict[str(id)]
+		elif typeof(id) == TYPE_STRING:
+			for element in dict.keys():
+				if dict[element]["name"] == id:
+					return element
+		print("WARNING: id_" + id + " " + type + " data not found.")
+		return null
+	else:
+		print("ERROR: " + type + " data not loaded.")
 	return null
 
 
