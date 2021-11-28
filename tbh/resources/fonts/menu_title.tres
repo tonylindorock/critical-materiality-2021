@@ -1,0 +1,10 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=1]
+
+[resource]
+size = 96
+extra_spacing_top = -22
+extra_spacing_bottom = -24
+extra_spacing_char = -8
+font_data = ExtResource( 1 )

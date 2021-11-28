@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ambience_siren.ogg-2b2843a401a92dc188a956bd076714a1.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

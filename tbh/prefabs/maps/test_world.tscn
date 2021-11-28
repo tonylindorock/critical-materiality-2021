@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://resources/materials/grid_light_wall.tres" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://prefabs/objects/pickable.tscn" type="PackedScene" id=6]
 [ext_resource path="res://prefabs/objects/door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://prefabs/maps/test_world.gd" type="Script" id=8]
+[ext_resource path="res://prefabs/environment/water.tscn" type="PackedScene" id=9]
 [ext_resource path="res://prefabs/environment/pine_tree_dense.tscn" type="PackedScene" id=12]
 [ext_resource path="res://prefabs/environment/pine_tree_single.tscn" type="PackedScene" id=13]
 [ext_resource path="res://prefabs/environment/bush.tscn" type="PackedScene" id=14]
@@ -142,3 +143,6 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06658, 1.79112, -11.3024 )
 
 [node name="Door" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03064, 0 )
+
+[node name="Water" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3337, 0 )

@@ -3,7 +3,9 @@ extends Spatial
 export var id := -1
 
 export var music_id = ""
+export var music_delay := 0.0
 export var ambience_id = ""
+export var ambience_delay := 0.0
 
 export var weather := -1
 
@@ -11,7 +13,7 @@ export var weather := -1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Global.set_world_manager(self)
-	LoadingScreen.set_current_scene(self)
+	LoadManager.set_current_scene(self)
 	setup()
 	
 
@@ -24,9 +26,9 @@ func setup():
 
 func play_music():
 	if music_id != "":
-		SoundManager.play_music(music_id)
+		SoundManager.play_music(music_id, music_delay)
 	if ambience_id != "":
-		SoundManager.play_ambience(ambience_id)
+		SoundManager.play_ambience(ambience_id, ambience_delay)
 
 
 func set_weath():

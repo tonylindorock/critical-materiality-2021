@@ -33,6 +33,17 @@ func reset():
 	_progress.value = 0
 
 
+func load_map(map_name):
+	var result = Core.find_data("MAP", map_name)
+	if result:
+		goto_scene(result["path"])
+
+
+func reload_map():
+	var result = get_tree().reload_current_scene()
+	print("Scene reloaded: " + String(result))
+
+
 func goto_scene(path): # Game requests to switch to this scene.
 	_ui.show()
 	

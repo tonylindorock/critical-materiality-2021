@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://prefabs/maps/surface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://resources/materials/far_skyscraper.tres" type="Material" id=20]
 [ext_resource path="res://prefabs/environment/oak_tree.tscn" type="PackedScene" id=21]
 [ext_resource path="res://resources/materials/oak_tree_leaves_yellow.tres" type="Material" id=22]
+[ext_resource path="res://prefabs/environment/water.tscn" type="PackedScene" id=23]
+[ext_resource path="res://assets/3d/environment/mesh/garbage_cluster.mesh" type="ArrayMesh" id=24]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3, 0.25, 20 )
@@ -32,16 +34,16 @@ extents = Vector3( 10, 7, 16 )
 [sub_resource type="CubeMesh" id=3]
 size = Vector3( 25, 90, 30 )
 
-[sub_resource type="CubeMesh" id=5]
+[sub_resource type="CubeMesh" id=4]
 size = Vector3( 40, 300, 40 )
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=5]
 size = Vector3( 25, 120, 40 )
 
-[sub_resource type="QuadMesh" id=7]
+[sub_resource type="QuadMesh" id=6]
 size = Vector2( 200, 20 )
 
-[sub_resource type="GDScript" id=15]
+[sub_resource type="GDScript" id=7]
 script/source = "extends StaticBody
 
 export var enabled := true
@@ -80,7 +82,7 @@ func open():
 	
 	if portal_to != \"\":
 		yield(get_tree().create_timer(0.7), \"timeout\")
-		LoadingScreen.goto_scene(portal_to)
+		LoadManager.goto_scene(portal_to)
 	
 	
 "
@@ -88,11 +90,11 @@ func open():
 [sub_resource type="QuadMesh" id=8]
 size = Vector2( 100, 16 )
 
+[sub_resource type="QuadMesh" id=9]
+
 [sub_resource type="QuadMesh" id=10]
 
-[sub_resource type="QuadMesh" id=11]
-
-[sub_resource type="CubeMesh" id=14]
+[sub_resource type="CubeMesh" id=11]
 flip_faces = true
 size = Vector3( 300, 200, 300 )
 
@@ -126,11 +128,11 @@ shape = SubResource( 1 )
 transform = Transform( -4.37114e-08, 4.37114e-08, 1, 1, -4.37114e-08, 4.37114e-08, 4.37114e-08, 1, -4.37114e-08, -0.531908, 10.2618, 12.4686 )
 shape = SubResource( 2 )
 
-[node name="surface" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
-
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 18.8965, 0.106774, 15.8621 )
+
+[node name="surface" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0 )
 
 [node name="Lightings" type="Spatial" parent="."]
 
@@ -293,12 +295,12 @@ material/0 = ExtResource( 20 )
 
 [node name="skyscraper7" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 245.046, 129.608, -195.455 )
-mesh = SubResource( 5 )
+mesh = SubResource( 4 )
 material/0 = ExtResource( 20 )
 
 [node name="skyscraper3" type="MeshInstance" parent="Buildings"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 35.1952, 57.7828, 112.851 )
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = ExtResource( 20 )
 
 [node name="skyscraper4" type="MeshInstance" parent="Buildings"]
@@ -318,29 +320,29 @@ material/0 = ExtResource( 20 )
 
 [node name="skyscraper5" type="MeshInstance" parent="Buildings"]
 transform = Transform( -2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 68.3244, 45.5776, -138.908 )
-mesh = SubResource( 6 )
+mesh = SubResource( 5 )
 material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 89.719, -5.70863, 56.85 )
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock2" type="MeshInstance" parent="Buildings"]
 transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -6.35282, -0.372567, -113.525 )
 visible = false
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock3" type="MeshInstance" parent="Buildings"]
 transform = Transform( -2.18557e-07, 0, 1, 0, 1, 0, -1, 0, -2.18557e-07, -92.6538, -0.372567, -11.5755 )
 visible = false
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 20 )
 
 [node name="BuildingBlock4" type="MeshInstance" parent="Buildings"]
 transform = Transform( -1, 0, -2.62268e-07, 0, 1, 0, 2.62268e-07, 0, -1, -6.01913, -0.372567, 81.1762 )
-mesh = SubResource( 7 )
+mesh = SubResource( 6 )
 material/0 = ExtResource( 20 )
 
 [node name="Props" type="Spatial" parent="."]
@@ -352,7 +354,7 @@ fade_out_ambience = true
 
 [node name="Door2" parent="Props" instance=ExtResource( 9 )]
 transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 19.0753, -2.18088, 21.2107 )
-script = SubResource( 15 )
+script = SubResource( 7 )
 enabled = false
 
 [node name="PicnicTable" parent="Props" instance=ExtResource( 13 )]
@@ -418,18 +420,28 @@ material/0 = ExtResource( 15 )
 
 [node name="grass" type="MeshInstance" parent="Road"]
 transform = Transform( 42.6502, 0, 0, 0, -1.8643e-06, 42.6502, 0, -21.0118, -9.18454e-07, 13.8938, 0, -51.4409 )
-mesh = SubResource( 10 )
+mesh = SubResource( 9 )
 material/0 = ExtResource( 17 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Road"]
-transform = Transform( 317.948, 0, 0, 0, -1.38979e-05, 317.948, 0, -317.948, -1.38979e-05, 0, -0.201366, 0 )
-mesh = SubResource( 11 )
+transform = Transform( 317.948, 0, 0, 0, -1.38979e-05, 317.948, 0, -317.948, -1.38979e-05, 0, -0.201, 0 )
+mesh = SubResource( 10 )
 material/0 = ExtResource( 16 )
 
 [node name="Box" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 80.2362, 0 )
-mesh = SubResource( 14 )
+mesh = SubResource( 11 )
 material/0 = ExtResource( 19 )
+
+[node name="Water" parent="." instance=ExtResource( 23 )]
+transform = Transform( 75.5701, 0, 0, 0, 75.5701, 0, 0, 0, 75.5701, 0, 0.553452, 0 )
+
+[node name="Garbage" type="Spatial" parent="."]
+
+[node name="GarbageCluster3" type="MeshInstance" parent="Garbage"]
+transform = Transform( 1.48741, 0, -0.19392, 0, 1.5, 0, 0.19392, 0, 1.48741, 15.1121, 0.408513, -7.99758 )
+mesh = ExtResource( 24 )
+material/0 = null
 
 [editable path="Trees/OakTree5"]
 [editable path="Trees/OakTree4"]

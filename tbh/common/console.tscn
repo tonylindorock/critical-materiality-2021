@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://resources/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://common/console.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Console" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bg" type="ColorRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 256
+custom_constants/margin_bottom = 128
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UI" type="VBoxContainer" parent="Margin"]
+margin_left = 256.0
+margin_top = 32.0
+margin_right = 928.0
+margin_bottom = 412.0
+custom_constants/separation = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin/UI"]
+margin_right = 672.0
+margin_bottom = 335.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Console up and running."
+scroll_following = true
+
+[node name="Command" type="LineEdit" parent="Margin/UI"]
+margin_top = 351.0
+margin_right = 672.0
+margin_bottom = 380.0
+custom_fonts/font = SubResource( 1 )
+clear_button_enabled = true

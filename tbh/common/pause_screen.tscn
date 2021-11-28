@@ -1,18 +1,12 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://resources/fonts/menu_title.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/main_theme.tres" type="Theme" id=2]
 [ext_resource path="res://common/settings.tscn" type="PackedScene" id=3]
 [ext_resource path="res://common/pause_screen.gd" type="Script" id=4]
 [ext_resource path="res://resources/materials/shader/shader_blur.tres" type="Material" id=5]
 [ext_resource path="res://prefabs/ui/theme_btn.gd" type="Script" id=6]
-
-[sub_resource type="DynamicFont" id=1]
-size = 128
-extra_spacing_top = -22
-extra_spacing_bottom = -32
-extra_spacing_char = -8
-font_data = ExtResource( 1 )
+[ext_resource path="res://common/console.tscn" type="PackedScene" id=7]
 
 [node name="PauseScreen" type="Control"]
 pause_mode = 2
@@ -53,7 +47,7 @@ __meta__ = {
 
 [node name="Container" type="HBoxContainer" parent="Margin"]
 margin_left = 32.0
-margin_top = 411.0
+margin_top = 440.0
 margin_right = 928.0
 margin_bottom = 508.0
 size_flags_vertical = 8
@@ -65,10 +59,10 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="Margin/Container"]
 margin_right = 444.0
-margin_bottom = 97.0
+margin_bottom = 68.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "PASUED"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -77,7 +71,7 @@ __meta__ = {
 [node name="BtnContainer" type="VBoxContainer" parent="Margin/Container"]
 margin_left = 736.0
 margin_right = 896.0
-margin_bottom = 97.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 10
 custom_constants/separation = 0
@@ -87,9 +81,9 @@ __meta__ = {
 }
 
 [node name="BtnBack" type="Button" parent="Margin/Container/BtnContainer"]
-margin_top = 33.0
+margin_top = 4.0
 margin_right = 160.0
-margin_bottom = 65.0
+margin_bottom = 36.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -110,15 +104,18 @@ align = 2
 script = ExtResource( 6 )
 
 [node name="BtnQuit" type="Button" parent="Margin/Container/BtnContainer"]
-margin_top = 65.0
+margin_top = 36.0
 margin_right = 160.0
-margin_bottom = 97.0
+margin_bottom = 68.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
 text = "QUIT"
 align = 2
 script = ExtResource( 6 )
+
+[node name="Console" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [node name="Settings" parent="." instance=ExtResource( 3 )]
 visible = false

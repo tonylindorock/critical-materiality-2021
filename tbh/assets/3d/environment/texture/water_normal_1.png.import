@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/board_color.png-6abceba4dcbde47288defeb941744bc1.stex"
+path="res://.import/water_normal_1.png-8519264b8db80db12156f86b9d2a09fb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/3d/furnitures/texture/board_color.png"
-dest_files=[ "res://.import/board_color.png-6abceba4dcbde47288defeb941744bc1.stex" ]
+source_file="res://assets/3d/environment/texture/water_normal_1.png"
+dest_files=[ "res://.import/water_normal_1.png-8519264b8db80db12156f86b9d2a09fb.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
-flags/filter=true
+flags/repeat=1
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=1
@@ -29,6 +29,6 @@ process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
 stream=false
-size_limit=0
+size_limit=512
 detect_3d=false
 svg/scale=1.0

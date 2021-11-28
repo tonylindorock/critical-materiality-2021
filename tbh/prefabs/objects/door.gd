@@ -36,6 +36,6 @@ func open():
 	
 	if portal_to != "":
 		yield(get_tree().create_timer(0.7), "timeout")
-		LoadingScreen.goto_scene(portal_to)
+		LoadManager.goto_scene(portal_to)
 	
 	

@@ -32,3 +32,8 @@ func _on_BtnQuit_pressed():
 
 func _on_BtnSettings_pressed():
 	$Settings.show()
+
+
+func _input(event):
+	if event.is_action_pressed("ui_console"):
+		$Console.visible = !$Console.visible

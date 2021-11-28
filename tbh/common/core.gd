@@ -99,7 +99,7 @@ func find_data(type: String, id):
 		elif typeof(id) == TYPE_STRING:
 			for element in dict.keys():
 				if dict[element]["name"] == id:
-					return element
+					return dict[element]
 		print("WARNING: id_" + id + " " + type + " data not found.")
 		return null
 	else:

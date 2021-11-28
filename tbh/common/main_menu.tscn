@@ -1,18 +1,59 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://resources/main_theme.tres" type="Theme" id=1]
-[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://resources/fonts/menu_title.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/ui/menu_bg.png" type="Texture" id=3]
 [ext_resource path="res://common/settings.tscn" type="PackedScene" id=4]
 [ext_resource path="res://common/main_menu.gd" type="Script" id=5]
 [ext_resource path="res://prefabs/ui/theme_btn.gd" type="Script" id=6]
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=7]
 
-[sub_resource type="DynamicFont" id=1]
-size = 128
-extra_spacing_top = -22
-extra_spacing_bottom = -32
-extra_spacing_char = -8
-font_data = ExtResource( 2 )
+[sub_resource type="DynamicFont" id=4]
+extra_spacing_char = 2
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("BtnStart:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 240, 201 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BtnSettings:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 240, 233 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BtnQuit:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 265 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "buttons_in"
+length = 0.5
 
 [node name="MainMenu" type="Node"]
 script = ExtResource( 5 )
@@ -39,6 +80,7 @@ __meta__ = {
 [node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 1 )
 custom_constants/margin_right = 32
 custom_constants/margin_top = 32
 custom_constants/margin_left = 32
@@ -54,10 +96,24 @@ margin_right = 928.0
 margin_bottom = 508.0
 alignment = 2
 
-[node name="Container" type="HBoxContainer" parent="Margin/UI"]
-margin_top = 161.0
+[node name="LabelVersion" type="Label" parent="Margin/UI"]
 margin_right = 896.0
-margin_bottom = 458.0
+margin_bottom = 41.0
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 4 )
+text = "CART498 Yichen Wang Presents
+A Digital Fiction"
+align = 1
+valign = 1
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Container" type="HBoxContainer" parent="Margin/UI"]
+margin_top = 266.0
+margin_right = 896.0
+margin_bottom = 476.0
 rect_min_size = Vector2( 0, 200 )
 custom_constants/separation = 8
 alignment = 1
@@ -67,10 +123,10 @@ __meta__ = {
 
 [node name="Title" type="Label" parent="Margin/UI/Container"]
 margin_right = 444.0
-margin_bottom = 297.0
+margin_bottom = 210.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 text = "The
 Bunker
 House"
@@ -82,19 +138,20 @@ __meta__ = {
 [node name="BtnContainer" type="VBoxContainer" parent="Margin/UI/Container"]
 margin_left = 736.0
 margin_right = 896.0
-margin_bottom = 297.0
+margin_bottom = 210.0
 rect_min_size = Vector2( 160, 0 )
 size_flags_horizontal = 10
 custom_constants/separation = 0
-alignment = 2
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BtnStart" type="Button" parent="Margin/UI/Container/BtnContainer"]
-margin_top = 233.0
-margin_right = 160.0
-margin_bottom = 265.0
+margin_left = 240.0
+margin_top = 201.0
+margin_right = 400.0
+margin_bottom = 233.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
@@ -116,9 +173,9 @@ align = 2
 script = ExtResource( 6 )
 
 [node name="BtnSettings" type="Button" parent="Margin/UI/Container/BtnContainer"]
-visible = false
+margin_left = 240.0
 margin_top = 233.0
-margin_right = 160.0
+margin_right = 400.0
 margin_bottom = 265.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
@@ -138,16 +195,10 @@ text = "QUIT"
 align = 2
 script = ExtResource( 6 )
 
-[node name="LabelVersion" type="Label" parent="Margin/UI"]
-margin_top = 462.0
-margin_right = 896.0
-margin_bottom = 476.0
-text = "CART498 Yichen Wang"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Margin/UI/Container/BtnContainer"]
+autoplay = "buttons_in"
+anims/RESET = SubResource( 2 )
+anims/buttons_in = SubResource( 3 )
 
 [node name="Settings" parent="." instance=ExtResource( 4 )]
 visible = false
