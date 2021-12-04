@@ -131,6 +131,8 @@ func _process(delta):
 	_camera_outline.global_transform = _camera.global_transform
 	
 	$Head/Camera/ObjPos.rotation_degrees.x = - _camera.rotation_degrees.x
+	
+	$CanvasLayerMenu/GUI/Label.set_text("fps: " + str(int(Engine.get_frames_per_second())))
 
 
 func _physics_process(delta):

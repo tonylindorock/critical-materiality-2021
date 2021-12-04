@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/3d/map/mesh/surface.glb" type="PackedScene" id=1]
 [ext_resource path="res://resources/materials/ground_mud.tres" type="Material" id=2]
@@ -19,6 +19,9 @@
 
 [sub_resource type="ConcavePolygonShape" id=13]
 data = PoolVector3Array( -1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="ConvexPolygonShape" id=16]
+points = PoolVector3Array( -2.10279, -0.792172, -1.8031, -1.8031, -0.792172, -2.10279, -2.10279, -0.792172, 1.80269, -2.10279, -0.0353994, -1.8031, 1.80269, -0.792172, -2.10279, -1.8031, -0.0353994, -2.10279, -1.8031, -0.792172, 2.10279, -2.10279, -0.0353994, 1.80269, -1.84262, 3.31806, -1.54251, 2.10279, -0.792172, -1.8031, 1.80269, -0.0353994, -2.10279, -1.54251, 3.31806, -1.84262, 1.80269, -0.792172, 2.10279, -1.8031, -0.0353994, 2.10279, -1.84262, 3.31806, 1.5421, -1.54251, 3.61809, -1.54251, 2.10279, -0.792172, 1.80269, 2.10279, -0.0353994, -1.8031, 1.5421, 3.31806, -1.84262, 1.80269, -0.0353994, 2.10279, -1.54251, 3.31806, 1.84221, -1.54251, 3.61809, 1.5421, 1.5421, 3.61809, -1.54251, 2.10279, -0.0353994, 1.80269, 1.84221, 3.31806, -1.54251, 1.5421, 3.31806, 1.84221, 1.5421, 3.61809, 1.5421, 1.84221, 3.31806, 1.5421 )
 
 [sub_resource type="Curve3D" id=14]
 _data = {
@@ -66,10 +69,16 @@ material/4 = ExtResource( 8 )
 material/5 = ExtResource( 9 )
 
 [node name="plank_wall" parent="." index="2"]
+transform = Transform( 0, 0, 1, 0, 1, 0, -1, 0, 0, 14.4156, 0, 11.0571 )
 material/0 = ExtResource( 5 )
 
 [node name="bunker" parent="." index="3"]
 material/0 = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="bunker" index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="bunker/StaticBody" index="0"]
+shape = SubResource( 16 )
 
 [node name="plank_wall_backup" parent="." index="4"]
 material/0 = ExtResource( 5 )

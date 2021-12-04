@@ -2,6 +2,8 @@ extends Node
 
 const LOWEST_DB = -61
 
+var repeat_music := false
+
 onready var _ui_stream = $UIStream
 onready var _sfx_stream = $SFXStream
 onready var _music_stream = $MusicStream
@@ -13,6 +15,12 @@ func _ready():
 	pass # Replace with function body.
 
 
+func _process(_delta):
+	if repeat_music:
+		if _music_stream.stream != null and !_music_stream.playing:
+			_music_stream.play()
+
+
 func play_sfx(id):
 	var sound = Core.find_sound(id)
 	if sound:
@@ -21,7 +29,7 @@ func play_sfx(id):
 		_sfx_stream.play()
 
 
-func play_music(id, delay:float = 0.0):
+func play_music(id, delay:float = 0.0, repeat:bool = false):
 	var sound = Core.find_sound(id)
 	if sound:
 		if delay > 0.0:
@@ -29,6 +37,8 @@ func play_music(id, delay:float = 0.0):
 		_music_stream.stream = load(sound["path"])
 		_music_stream.volume_db = sound["volume"]
 		_music_stream.play()
+		
+		repeat_music = repeat
 
 
 func play_ambience(id, delay:float = 0.0):

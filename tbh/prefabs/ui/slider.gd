@@ -4,9 +4,12 @@ extends Control
 const ALTER_SPEED := .5
 
 export(String) var _text := "Name" setget set_text
+
+# display value
 export(int) var _min := 0 setget set_min
 export(int) var _max := 100 setget set_max
 export(int) var _value := 50 setget set_value
+
 export(String) var _num_sign := "%" setget set_num_sign
 
 var _sliding := false
@@ -20,6 +23,10 @@ func _ready():
 	update_value()
 
 
+func map(value, input_a, input_b, output_a, output_b):
+	return (value - input_a) / (input_b - input_a) * (output_b - output_a) + output_a
+
+
 func set_min(val):
 	_min = val
 	$Margin/Container/Progress.min_value = _min
@@ -28,17 +35,17 @@ func set_min(val):
 func set_max(val):
 	_max = val
 	$Margin/Container/Progress.max_value = _max
-		
-	
-func set_text(new_text):
-	_text = new_text
-	$Margin/Container/TopContainer/Des.set_text(_text)
-	
+
 
 func set_value(new_value):
 	_value = new_value
 	$Margin/Container/Progress.value = _value
 	$Margin/Container/TopContainer/Value.text = str($Margin/Container/Progress.value) + _num_sign
+		
+	
+func set_text(new_text):
+	_text = new_text
+	$Margin/Container/TopContainer/Des.set_text(_text)
 
 
 func set_num_sign(character):
@@ -49,6 +56,10 @@ func set_num_sign(character):
 func update_value():
 	_value = _ref_progress.value
 	_ref_value.text = str(_ref_progress.value) + _num_sign
+
+
+func get_value():
+	return _value
 
 
 # handle mouse sliding

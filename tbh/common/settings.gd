@@ -54,6 +54,9 @@ func _on_BtnCancel_pressed():
 
 
 func _on_BtnOk_pressed():
+	# check music
+	var v = $Margin/MainContainer/TopContainer/RightContainer/Controls/Scroll3/SoundControls/SliderMusic.get_value()
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), v)
 	hide()
 	
 

@@ -7,6 +7,8 @@ var _quit_click_time := 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Settings.hide()
+	
+	SoundManager.play_music("music_hill", 0, true)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

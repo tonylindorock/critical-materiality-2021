@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "ArrayUtils",
+"language": "GDScript",
+"path": "res://addons/SIsilicon.3d.text/array_utils.gd"
+}, {
 "base": "RigidBody",
 "class": "Interactable",
 "language": "GDScript",
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://prefabs/objects/stationary.gd"
 } ]
 _global_script_class_icons={
+"ArrayUtils": "",
 "Interactable": "",
 "RichTextAngry": "",
 "RichTextWhisper": "",
@@ -66,7 +72,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/scatter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/SIsilicon.3d.text/plugin.cfg", "res://addons/scatter/plugin.cfg" )
 
 [importer_defaults]
 

@@ -6,5 +6,5 @@
 size = 96
 extra_spacing_top = -22
 extra_spacing_bottom = -24
-extra_spacing_char = -8
+extra_spacing_char = -6
 font_data = ExtResource( 1 )
