@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://resources/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://resources/fonts/menu_title.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://common/main_menu.gd" type="Script" id=5]
 [ext_resource path="res://prefabs/ui/theme_btn.gd" type="Script" id=6]
 [ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=8]
 
 [sub_resource type="DynamicFont" id=4]
 extra_spacing_char = 2
@@ -55,6 +56,42 @@ tracks/2/keys = {
 resource_name = "buttons_in"
 length = 0.5
 
+[sub_resource type="DynamicFont" id=5]
+extra_spacing_char = 2
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Margin/UI/Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "start_fade"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Margin/UI/Label:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="MainMenu" type="Node"]
 script = ExtResource( 5 )
 
@@ -97,6 +134,7 @@ margin_bottom = 508.0
 alignment = 2
 
 [node name="LabelVersion" type="Label" parent="Margin/UI"]
+visible = false
 margin_right = 896.0
 margin_bottom = 41.0
 size_flags_vertical = 2
@@ -111,6 +149,7 @@ __meta__ = {
 }
 
 [node name="Container" type="HBoxContainer" parent="Margin/UI"]
+visible = false
 margin_top = 266.0
 margin_right = 896.0
 margin_bottom = 476.0
@@ -200,8 +239,24 @@ autoplay = "buttons_in"
 anims/RESET = SubResource( 2 )
 anims/buttons_in = SubResource( 3 )
 
+[node name="Label" type="Label" parent="Margin/UI"]
+margin_top = 444.0
+margin_right = 896.0
+margin_bottom = 476.0
+rect_min_size = Vector2( 0, 32 )
+custom_fonts/font = SubResource( 5 )
+text = "Press any key to start"
+align = 1
+valign = 1
+uppercase = true
+
 [node name="Settings" parent="." instance=ExtResource( 4 )]
 visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "start_fade"
+anims/RESET = SubResource( 6 )
+anims/start_fade = SubResource( 7 )
 
 [connection signal="pressed" from="Margin/UI/Container/BtnContainer/BtnStart" to="." method="_on_BtnStart_pressed"]
 [connection signal="pressed" from="Margin/UI/Container/BtnContainer/BtnSettings" to="." method="_on_BtnSettings_pressed"]

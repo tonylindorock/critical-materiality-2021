@@ -81,3 +81,9 @@ func pause_game(state := true):
 
 func map(value, input_a, input_b, output_a, output_b):
 	return (value - input_a) / (input_b - input_a) * (output_b - output_a) + output_a
+
+
+static func node_exists(node):
+	if is_instance_valid(node) and node != null and node is Node and node.is_inside_tree():
+		return true
+	return false

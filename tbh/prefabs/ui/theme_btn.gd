@@ -4,8 +4,8 @@ extends Button
 
 
 func _ready():
-	connect("mouse_entered", self, "play_hover_sfx")
-	connect("pressed", self, "play_press_sfx")
+	var _err = connect("mouse_entered", self, "play_hover_sfx")
+	var _err_1 = connect("pressed", self, "play_press_sfx")
 
 
 func play_hover_sfx():

@@ -1,6 +1,7 @@
 extends Spatial
 
 export var id := -1
+export var credits_id := -1
 
 export var music_id = ""
 export var music_delay := 0.0
@@ -22,6 +23,10 @@ func setup():
 	set_weath()
 	
 	$Player/Head/Camera/MaterialPreloader.load_materials(id)
+	
+	if credits_id >= 0:
+		$Player/CanvasLayerMenu/GUI/Credits.show()
+		$Player/CanvasLayerMenu/GUI/Credits.play_credit(credits_id)
 
 
 func play_music():
@@ -34,3 +39,4 @@ func play_music():
 func set_weath():
 	if weather == 1:
 		$Player/Particles.emitting = true
+

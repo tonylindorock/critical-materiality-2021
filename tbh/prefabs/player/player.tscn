@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://prefabs/player/player.gd" type="Script" id=1]
+[ext_resource path="res://common/credits.tscn" type="PackedScene" id=2]
 [ext_resource path="res://common/pause_screen.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://assets/ui/crosshair.png" type="Texture" id=9]
@@ -242,7 +243,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Credits" parent="CanvasLayerMenu/GUI" instance=ExtResource( 2 )]
+visible = false
+
 [node name="Label" type="Label" parent="CanvasLayerMenu/GUI"]
+visible = false
 anchor_right = 1.0
 margin_top = 16.0
 margin_bottom = 48.0

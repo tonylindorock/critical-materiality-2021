@@ -6,6 +6,7 @@ var _quit_click_time := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	$Settings.hide()
 	
 	SoundManager.play_music("music_hill", 0, true)
@@ -16,7 +17,16 @@ func _ready():
 #	pass
 
 
+func _input(event):
+	if event is InputEventKey or event is InputEventMouseButton:
+		if event.pressed:
+			$Margin/UI/Label.hide()
+			$Margin/UI/LabelVersion.show()
+			$Margin/UI/Container.show()
+
+
 func _on_BtnStart_pressed():
+	SoundManager.fade_out_music()
 	LoadManager.goto_scene("res://prefabs/maps/test_surface.tscn")
 
 

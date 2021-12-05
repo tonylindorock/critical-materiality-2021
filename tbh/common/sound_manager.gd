@@ -55,3 +55,9 @@ func fade_out_ambience(duration:float = 1.0, delay:float = 0.0):
 	$TweenOut.interpolate_property(_ambience_stream, "volume_db", _ambience_stream.volume_db, LOWEST_DB, duration,
 			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
 	$TweenOut.start()
+
+
+func fade_out_music(duration:float = 1.0, delay:float = 0.0):
+	$TweenOut.interpolate_property(_music_stream, "volume_db", _music_stream.volume_db, LOWEST_DB, duration,
+			Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, delay)
+	$TweenOut.start()

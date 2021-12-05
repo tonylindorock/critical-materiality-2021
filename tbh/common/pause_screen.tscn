@@ -93,9 +93,9 @@ script = ExtResource( 6 )
 
 [node name="BtnSettings" type="Button" parent="Margin/Container/BtnContainer"]
 visible = false
-margin_top = 33.0
+margin_top = 32.0
 margin_right = 160.0
-margin_bottom = 65.0
+margin_bottom = 64.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
@@ -103,16 +103,31 @@ text = "SETTINGS"
 align = 2
 script = ExtResource( 6 )
 
-[node name="BtnQuit" type="Button" parent="Margin/Container/BtnContainer"]
+[node name="BtnMainMenu" type="Button" parent="Margin/Container/BtnContainer"]
 margin_top = 36.0
 margin_right = 160.0
 margin_bottom = 68.0
 rect_min_size = Vector2( 0, 32 )
 size_flags_horizontal = 3
 theme = ExtResource( 2 )
+text = "MAIN MENU"
+align = 2
+script = ExtResource( 6 )
+
+[node name="BtnQuit" type="Button" parent="Margin/Container/BtnContainer"]
+visible = false
+margin_top = 64.0
+margin_right = 160.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 32 )
+size_flags_horizontal = 3
+theme = ExtResource( 2 )
 text = "QUIT"
 align = 2
 script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Console" parent="." instance=ExtResource( 7 )]
 visible = false
@@ -122,4 +137,5 @@ visible = false
 
 [connection signal="pressed" from="Margin/Container/BtnContainer/BtnBack" to="." method="_on_BtnBack_pressed"]
 [connection signal="pressed" from="Margin/Container/BtnContainer/BtnSettings" to="." method="_on_BtnSettings_pressed"]
+[connection signal="pressed" from="Margin/Container/BtnContainer/BtnMainMenu" to="." method="_on_BtnMainMenu_pressed"]
 [connection signal="pressed" from="Margin/Container/BtnContainer/BtnQuit" to="." method="_on_BtnQuit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://prefabs/maps/surface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=2]
@@ -23,8 +23,11 @@
 [ext_resource path="res://prefabs/environment/oak_tree.tscn" type="PackedScene" id=21]
 [ext_resource path="res://resources/materials/oak_tree_leaves_yellow.tres" type="Material" id=22]
 [ext_resource path="res://prefabs/environment/water.tscn" type="PackedScene" id=23]
+[ext_resource path="res://resources/materials/signs.tres" type="Material" id=24]
 [ext_resource path="res://assets/fonts/roboto/RobotoCondensed-Bold.ttf" type="DynamicFontData" id=25]
 [ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=26]
+[ext_resource path="res://assets/3d/environment/mesh/signs_Cube001.mesh" type="ArrayMesh" id=27]
+[ext_resource path="res://assets/3d/environment/mesh/signs_Cube002.mesh" type="ArrayMesh" id=28]
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3, 0.25, 20 )
@@ -88,6 +91,12 @@ func open():
 	
 "
 
+[sub_resource type="ConvexPolygonShape" id=13]
+points = PoolVector3Array( -0.337936, 1.80034, 0.0201591, -0.0206414, -0.0472702, -0.0205783, -0.337936, 1.80034, 0.0266802, -0.169034, 2.09302, 0.0201591, -0.0206414, 2.06935, -0.0205783, 0.0205752, -0.0472702, -0.0205783, -0.0206414, -0.0472702, 0.0205741, -0.00668198, 1.53302, 0.0305109, -0.00668198, 2.04421, 0.0305109, -0.169034, 2.09302, 0.0266802, 0.168902, 2.09302, 0.0201591, 0.0205752, 2.06935, -0.0205783, 0.33787, 1.80034, 0.0201591, 0.0205752, -0.0472702, 0.0205741, 0.00661582, 1.53302, 0.0305109, 0.00661582, 2.04421, 0.0305109, 0.168902, 2.09302, 0.0266802, 0.33787, 1.80034, 0.0266802 )
+
+[sub_resource type="ConvexPolygonShape" id=14]
+points = PoolVector3Array( -0.337936, 1.80034, 0.0201591, -0.0206414, -0.0472702, -0.0205783, -0.337936, 1.80034, 0.0266802, -0.169034, 2.09302, 0.0201591, -0.0206414, 2.06935, -0.0205783, 0.0205752, -0.0472702, -0.0205783, -0.0206414, -0.0472702, 0.0205741, -0.00668198, 1.53302, 0.0305109, -0.00668198, 2.04421, 0.0305109, -0.169034, 2.09302, 0.0266802, 0.168902, 2.09302, 0.0201591, 0.0205752, 2.06935, -0.0205783, 0.33787, 1.80034, 0.0201591, 0.0205752, -0.0472702, 0.0205741, 0.00661582, 1.53302, 0.0305109, 0.00661582, 2.04421, 0.0305109, 0.168902, 2.09302, 0.0266802, 0.33787, 1.80034, 0.0266802 )
+
 [sub_resource type="QuadMesh" id=8]
 size = Vector2( 100, 16 )
 
@@ -105,6 +114,7 @@ font_data = ExtResource( 25 )
 [node name="TestSurface" type="Spatial"]
 script = ExtResource( 12 )
 id = 0
+credits_id = 0
 ambience_id = "ambience_siren"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -387,6 +397,27 @@ transform = Transform( 0.819152, 0, -0.573576, 0, 1, 0, 0.573576, 0, 0.819152, 0
 
 [node name="PicnicTable2" parent="Props" instance=ExtResource( 13 )]
 transform = Transform( 0.766044, 0, 0.642788, 0, 1, 0, -0.642788, 0, 0.766044, 8.84273, 0, -10.2323 )
+
+[node name="SignBunker" type="MeshInstance" parent="Props"]
+transform = Transform( 0.633927, 0, 1.35946, 0, 1.5, 0, -1.35946, 0, 0.633927, -7.40069, 0, -4.61849 )
+mesh = ExtResource( 27 )
+material/0 = ExtResource( 24 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/SignBunker"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/SignBunker/StaticBody"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+shape = SubResource( 13 )
+
+[node name="SignUnder" type="MeshInstance" parent="Props"]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 20.5586, 0, 1.19772 )
+mesh = ExtResource( 28 )
+material/0 = ExtResource( 24 )
+
+[node name="StaticBody" type="StaticBody" parent="Props/SignUnder"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Props/SignUnder/StaticBody"]
+shape = SubResource( 14 )
 
 [node name="AreaNoReturn" parent="." instance=ExtResource( 14 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000518799, -23.7108, -0.00212097 )

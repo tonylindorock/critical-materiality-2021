@@ -37,3 +37,9 @@ func _on_BtnSettings_pressed():
 func _input(event):
 	if event.is_action_pressed("ui_console"):
 		$Console.visible = !$Console.visible
+
+
+func _on_BtnMainMenu_pressed():
+	SoundManager.fade_out_ambience()
+	Global.pause_game(false)
+	LoadManager.goto_scene("res://common/main_menu.tscn")

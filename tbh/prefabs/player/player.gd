@@ -106,6 +106,8 @@ onready var _ray_ground = $RayGround
 onready var _ray_weapon = $Head/Camera/RayWeapon
 onready var _ray_interact = $Head/Camera/RayInteract
 
+onready var credits = $CanvasLayerMenu/GUI/Credits
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

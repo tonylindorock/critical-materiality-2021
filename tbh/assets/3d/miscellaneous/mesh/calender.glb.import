@@ -2,12 +2,12 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/garbage_cluster.glb-243d358420294d4954452598efd84515.scn"
+path="res://.import/calender.glb-0486b7fb73109874566fe84f071930a2.scn"
 
 [deps]
 
-source_file="res://assets/3d/environment/mesh/garbage_cluster.glb"
-dest_files=[ "res://.import/garbage_cluster.glb-243d358420294d4954452598efd84515.scn" ]
+source_file="res://assets/3d/miscellaneous/mesh/calender.glb"
+dest_files=[ "res://.import/calender.glb-0486b7fb73109874566fe84f071930a2.scn" ]
 
 [params]
 
@@ -20,6 +20,7 @@ nodes/use_legacy_names=true
 materials/location=1
 materials/storage=0
 materials/keep_on_reimport=false
+meshes/octahedral_compression=true
 meshes/compress=true
 meshes/ensure_tangents=true
 meshes/storage=1

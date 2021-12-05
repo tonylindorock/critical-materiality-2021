@@ -139,5 +139,6 @@ __meta__ = {
 
 [node name="weed" type="MeshInstance" parent="." index="7"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.875, 0, 0 )
+visible = false
 mesh = ExtResource( 26 )
 material/0 = ExtResource( 11 )

@@ -11,10 +11,8 @@
       "apartment_4",
       "apartment_5",
       "lights",
-      "street_lights",
       "plank_wall",
       "concrete",
-      "grass_green",
       "weed_0",
       "pine_tree_leaves",
       "pine_tree_trunk",
@@ -26,10 +24,9 @@
       "far_road",
       "far_concrete",
       "box_foggy",
-      "oak_tree_leaves",
-      "oak_tree_leaves_yellow",
       "oak_tree_trunk",
-      "light_flare"
+      "light_flare",
+      "signs"
     ]
   },
   "1": {
