@@ -42,7 +42,13 @@
       "bedroom",
       "board",
       "medkit",
-      "magnum_rounds"
+      "magnum_rounds",
+      "garbage_cluster",
+      "office",
+      "bathroom",
+      "ceramic",
+      "glass",
+      "calender"
     ]
   }
 }

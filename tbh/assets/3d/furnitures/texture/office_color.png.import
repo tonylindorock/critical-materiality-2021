@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garbage_color.png-01dc23b383b27e13368c2af4693737d6.stex"
+path="res://.import/office_color.png-9035a462dab1391eac150eba82d96147.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/3d/environment/texture/garbage_color.png"
-dest_files=[ "res://.import/garbage_color.png-01dc23b383b27e13368c2af4693737d6.stex" ]
+source_file="res://assets/3d/furnitures/texture/office_color.png"
+dest_files=[ "res://.import/office_color.png-9035a462dab1391eac150eba82d96147.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 extends Spatial
 
-var time := 2
+var time := 3
 
 onready var _empty = $Empty
 
@@ -25,6 +25,7 @@ func remove_all_children():
 func load_materials(map_id : int):
 	remove_all_children()
 	var result = Core.find_data("MAP", map_id)
+	var num = 0
 	if result:
 		for element in result["materials"]:
 			var path = "res://resources/materials/" + element + ".tres"
@@ -37,6 +38,8 @@ func load_materials(map_id : int):
 				new_empty.set_surface_material(0, load(path))
 				
 				add_child(new_empty, true)
+				num += 1
 			else:
 				print("WARNING: " + element + " material doesn't exist!")
+	print(str(num) + " materials showed.")
 	set_process(true)

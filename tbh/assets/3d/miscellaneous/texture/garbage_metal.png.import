@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/garbage_color.png-01dc23b383b27e13368c2af4693737d6.stex"
+path="res://.import/garbage_metal.png-87ba75aa9a7e73ceca1e656218d4ab73.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/3d/environment/texture/garbage_color.png"
-dest_files=[ "res://.import/garbage_color.png-01dc23b383b27e13368c2af4693737d6.stex" ]
+source_file="res://assets/3d/miscellaneous/texture/garbage_metal.png"
+dest_files=[ "res://.import/garbage_metal.png-87ba75aa9a7e73ceca1e656218d4ab73.stex" ]
 
 [params]
 
