@@ -74,7 +74,25 @@
   "12": {
     "name": "ambience_siren",
     "type": "ambience",
-    "volume": -15,
+    "volume": -30,
     "path": "assets/sounds/ambience/ambience_siren.ogg"
+  },
+  "13": {
+    "name": "ambience_city",
+    "type": "ambience",
+    "volume": -32,
+    "path": "assets/sounds/ambience/city_ambience.ogg"
+  },
+  "14": {
+    "name": "water_pipes",
+    "type": "sfx",
+    "volume": -15,
+    "path": "assets/sounds/sfx/water_pipes.wav"
+  },
+  "15": {
+    "name": "ambience_room",
+    "type": "ambience",
+    "volume": 0,
+    "path": "assets/sounds/ambience/room_ambience.ogg"
   }
 }

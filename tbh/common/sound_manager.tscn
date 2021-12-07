@@ -15,7 +15,12 @@ bus = "SFX"
 [node name="MusicStream" type="AudioStreamPlayer" parent="."]
 bus = "Music"
 
-[node name="AmbienceStream" type="AudioStreamPlayer" parent="."]
+[node name="AmbienceTrack0" type="AudioStreamPlayer" parent="."]
 bus = "Ambience"
 
+[node name="AmbienceTrack1" type="AudioStreamPlayer" parent="."]
+bus = "Ambience 2"
+
 [node name="TweenOut" type="Tween" parent="."]
+
+[node name="TweenOut2" type="Tween" parent="."]

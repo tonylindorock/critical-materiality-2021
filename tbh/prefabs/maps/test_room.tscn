@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://prefabs/maps/room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=2]
@@ -79,6 +79,7 @@
 [ext_resource path="res://assets/3d/miscellaneous/texture/wall_random_1.png" type="Texture" id=77]
 [ext_resource path="res://assets/3d/miscellaneous/texture/wall_city.png" type="Texture" id=78]
 [ext_resource path="res://assets/3d/miscellaneous/texture/dirt.png" type="Texture" id=79]
+[ext_resource path="res://assets/sounds/sfx/water_pipes.wav" type="AudioStream" id=80]
 
 [sub_resource type="Environment" id=1]
 background_color = Color( 0.494118, 0.494118, 0.494118, 1 )
@@ -128,6 +129,7 @@ data = PoolVector3Array( 0.2173, 0.3543, -0.153, 0.2173, 0.4191, 0.0165, 0.2173,
 [node name="TestRoom" type="Spatial"]
 script = ExtResource( 27 )
 id = 1
+ambience_id = "ambience_room"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -850,6 +852,22 @@ script = ExtResource( 45 )
 [node name="CollisionShape" type="CollisionShape" parent="AreaExit"]
 shape = SubResource( 26 )
 disabled = true
+
+[node name="Sfx" type="Spatial" parent="."]
+
+[node name="Pipes" type="AudioStreamPlayer3D" parent="Sfx"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.20302, 2.47063, -4.93158 )
+stream = ExtResource( 80 )
+autoplay = true
+max_distance = 30.0
+bus = "SFX"
+
+[node name="Pipes2" type="AudioStreamPlayer3D" parent="Sfx"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.5582, 2.47063, -0.0719163 )
+stream = ExtResource( 80 )
+autoplay = true
+max_distance = 80.0
+bus = "SFX"
 
 [connection signal="body_entered" from="AreaExitTrigger" to="AreaExit" method="_on_AreaExitTrigger_body_entered"]
 [connection signal="body_entered" from="AreaExit" to="AreaExit" method="_on_AreaExit_body_entered"]

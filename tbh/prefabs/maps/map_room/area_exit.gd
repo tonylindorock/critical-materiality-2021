@@ -19,6 +19,8 @@ func _on_AreaExitTrigger_body_entered(body):
 
 func _on_AreaExit_body_entered(body):
 	if body == Global.get_player():
+		SoundManager.fade_out_ambience()
+		
 		body.credits.show()
 		body.credits.bg.show()
 		body.credits.play_credit(1)
