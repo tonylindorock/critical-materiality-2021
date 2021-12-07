@@ -9,6 +9,7 @@
 [node name="MeshInstance" parent="." index="0"]
 transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, -0.021759 )
 cast_shadow = 0
+extra_cull_margin = 32.0
 mesh = ExtResource( 1 )
 material/0 = ExtResource( 3 )
 

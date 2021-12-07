@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=90 format=2]
 
 [ext_resource path="res://prefabs/maps/room.tscn" type="PackedScene" id=1]
 [ext_resource path="res://prefabs/player/player.tscn" type="PackedScene" id=2]
@@ -58,6 +58,27 @@
 [ext_resource path="res://assets/3d/miscellaneous/mesh/garbages_Cylinder009.mesh" type="ArrayMesh" id=56]
 [ext_resource path="res://assets/3d/furnitures/mesh/bathroom_Cube004.mesh" type="ArrayMesh" id=57]
 [ext_resource path="res://resources/materials/garbage_cluster.tres" type="Material" id=58]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_computer.png" type="Texture" id=59]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_9.png" type="Texture" id=60]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_window.png" type="Texture" id=61]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_10.png" type="Texture" id=62]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_5.png" type="Texture" id=63]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_4.png" type="Texture" id=64]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_8.png" type="Texture" id=65]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_6.png" type="Texture" id=66]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_7.png" type="Texture" id=67]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_3.png" type="Texture" id=68]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_2.png" type="Texture" id=69]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_0.png" type="Texture" id=70]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_writing_1.png" type="Texture" id=71]
+[ext_resource path="res://assets/3d/miscellaneous/mesh/manual_Cube003.mesh" type="ArrayMesh" id=72]
+[ext_resource path="res://resources/materials/bunker_door.tres" type="Material" id=73]
+[ext_resource path="res://assets/3d/miscellaneous/texture/icon_power.png" type="Texture" id=74]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_scratch.png" type="Texture" id=75]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_random_0.png" type="Texture" id=76]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_random_1.png" type="Texture" id=77]
+[ext_resource path="res://assets/3d/miscellaneous/texture/wall_city.png" type="Texture" id=78]
+[ext_resource path="res://assets/3d/miscellaneous/texture/dirt.png" type="Texture" id=79]
 
 [sub_resource type="Environment" id=1]
 background_color = Color( 0.494118, 0.494118, 0.494118, 1 )
@@ -102,51 +123,6 @@ data = PoolVector3Array( 0.3004, 0.8967, 0.0679, 0.3004, 0.8403, -0.2192, 0.3004
 [sub_resource type="ConcavePolygonShape" id=10]
 data = PoolVector3Array( 0.2173, 0.3543, -0.153, 0.2173, 0.4191, 0.0165, 0.2173, 0.4191, -0.153, -0.2173, 0.3543, -0.153, 0.2173, 0.4191, -0.153, -0.2173, 0.4191, -0.153, -0.2173, 0.3543, -0.153, 0.2173, 0.3543, -0.153, 0.2173, 0.4191, -0.153, -0.2173, 0.3543, 0.3385, -0.0653, 0.1885, 0.3736, -0.1088, 0.1885, 0.2797, -0.2173, 0.3543, 0.3385, -0.1304, 0.3543, 0.489, -0.0653, 0.1885, 0.3736, -0.2173, 0.3543, -0.153, -0.1088, 0.1885, 0.2797, -0.1088, 0.1885, -0.153, -0.2173, 0.3543, -0.153, -0.2173, 0.3543, 0.3385, -0.1088, 0.1885, 0.2797, 0, 0.3543, 0.5235, -0.1304, 0.4191, 0.489, 0, 0.4191, 0.5235, 0, 0.3543, 0.5235, -0.1304, 0.3543, 0.489, -0.1304, 0.4191, 0.489, 0.0653, 0.1885, 0.3736, 0.2173, 0.3543, 0.3385, 0.1088, 0.1885, 0.2797, 0.0653, 0.1885, 0.3736, 0.1304, 0.3543, 0.489, 0.2173, 0.3543, 0.3385, 0, 0.4191, 0.5235, 0.1304, 0.3543, 0.489, 0, 0.3543, 0.5235, 0, 0.4191, 0.5235, 0.1304, 0.4191, 0.489, 0.1304, 0.3543, 0.489, -0.1088, 0.1885, 0.2797, -0.0653, 0, 0.3736, -0.1088, 0, 0.2797, -0.1088, 0.1885, 0.2797, -0.0653, 0.1885, 0.3736, -0.0653, 0, 0.3736, 0.0653, 0.1885, 0.3736, 0.1088, 0, 0.2797, 0.0653, 0, 0.3736, 0.0653, 0.1885, 0.3736, 0.1088, 0.1885, 0.2797, 0.1088, 0, 0.2797, 0.2173, 0.3543, -0.153, -0.1088, 0.1885, -0.153, 0.1088, 0.1885, -0.153, 0.2173, 0.3543, -0.153, -0.2173, 0.3543, -0.153, -0.1088, 0.1885, -0.153, 0.1088, 0.1885, 0.2797, 0.2173, 0.3543, -0.153, 0.1088, 0.1885, -0.153, 0.1088, 0.1885, 0.2797, 0.2173, 0.3543, 0.3385, 0.2173, 0.3543, -0.153, 0, 0.3543, 0.5235, 0.0653, 0.1885, 0.3736, 0, 0.1885, 0.3994, 0, 0.3543, 0.5235, 0.1304, 0.3543, 0.489, 0.0653, 0.1885, 0.3736, -0.1088, 0.1885, -0.153, -0.1088, 0, 0.2797, -0.1088, 0, -0.153, -0.1088, 0.1885, -0.153, -0.1088, 0.1885, 0.2797, -0.1088, 0, 0.2797, -0.0653, 0.1885, 0.3736, 0, 0, 0.3994, -0.0653, 0, 0.3736, -0.0653, 0.1885, 0.3736, 0, 0.1885, 0.3994, 0, 0, 0.3994, -0.1304, 0.422, 0.489, -0.2173, 0.4423, 0.3385, -0.1304, 0.4423, 0.489, -0.1304, 0.422, 0.489, -0.2173, 0.422, 0.3385, -0.2173, 0.4423, 0.3385, 0.2173, 0.422, 0.3385, 0.1304, 0.4423, 0.489, 0.2173, 0.4423, 0.3385, 0.2173, 0.422, 0.3385, 0.1304, 0.422, 0.489, 0.1304, 0.4423, 0.489, 0.1088, 0.1885, -0.153, -0.1088, 0, -0.153, 0.1088, 0, -0.153, 0.1088, 0.1885, -0.153, -0.1088, 0.1885, -0.153, -0.1088, 0, -0.153, 0.1088, 0.1885, 0.2797, 0.1088, 0, -0.153, 0.1088, 0, 0.2797, 0.1088, 0.1885, 0.2797, 0.1088, 0.1885, -0.153, 0.1088, 0, -0.153, -0.2173, 0.4423, 0.0539, 0.2173, 0.4423, 0.3385, -0.2173, 0.4423, 0.3385, -0.2173, 0.4423, 0.0539, 0.2173, 0.4423, 0.0539, 0.2173, 0.4423, 0.3385, 0, 0.1885, 0.3994, 0.0653, 0, 0.3736, 0, 0, 0.3994, 0, 0.1885, 0.3994, 0.0653, 0.1885, 0.3736, 0.0653, 0, 0.3736, -0.0653, 0.1885, 0.3736, 0, 0.3543, 0.5235, 0, 0.1885, 0.3994, -0.0653, 0.1885, 0.3736, -0.1304, 0.3543, 0.489, 0, 0.3543, 0.5235, 0.1304, 0.4191, 0.489, -0.2173, 0.4191, 0.3385, 0.2173, 0.4191, 0.3385, 0.1304, 0.4191, 0.489, -0.1304, 0.4191, 0.489, -0.2173, 0.4191, 0.3385, 0.2173, 0.422, 0.0539, 0.2173, 0.4423, 0.3385, 0.2173, 0.4423, 0.0539, 0.2173, 0.422, 0.0539, 0.2173, 0.422, 0.3385, 0.2173, 0.4423, 0.3385, 0.1304, 0.4423, 0.489, -0.2173, 0.4423, 0.3385, 0.2173, 0.4423, 0.3385, 0.1304, 0.4423, 0.489, -0.1304, 0.4423, 0.489, -0.2173, 0.4423, 0.3385, -0.1304, 0.422, 0.489, 0.2173, 0.422, 0.3385, -0.2173, 0.422, 0.3385, -0.1304, 0.422, 0.489, 0.1304, 0.422, 0.489, 0.2173, 0.422, 0.3385, -0.2173, 0.422, 0.3385, -0.2173, 0.4423, 0.0539, -0.2173, 0.4423, 0.3385, -0.2173, 0.422, 0.3385, -0.2173, 0.422, 0.0539, -0.2173, 0.4423, 0.0539, 0, 0.4191, 0.5235, -0.1304, 0.4191, 0.489, 0.1304, 0.4191, 0.489, -0.2173, 0.8475, -0.153, 0.1932, 0.8715, -0.153, -0.1932, 0.8715, -0.153, -0.2173, 0.8475, -0.153, 0.2173, 0.8475, -0.153, 0.1932, 0.8715, -0.153, 0, 0.422, 0.5235, -0.1304, 0.4423, 0.489, 0, 0.4423, 0.5235, 0, 0.422, 0.5235, -0.1304, 0.422, 0.489, -0.1304, 0.4423, 0.489, 0.1304, 0.422, 0.489, 0, 0.4423, 0.5235, 0.1304, 0.4423, 0.489, 0.1304, 0.422, 0.489, 0, 0.422, 0.5235, 0, 0.4423, 0.5235, -0.2173, 0.4191, 0.0165, -0.2173, 0.8475, -0.153, -0.2173, 0.8475, 0.0165, -0.2173, 0.4191, 0.0165, -0.2173, 0.4191, -0.153, -0.2173, 0.8475, -0.153, 0.2173, 0.8475, 0.0165, 0.2173, 0.4191, -0.153, 0.2173, 0.4191, 0.0165, 0.2173, 0.8475, 0.0165, 0.2173, 0.8475, -0.153, 0.2173, 0.4191, -0.153, 0.2173, 0.8475, 0.0165, -0.1932, 0.8715, 0.0165, 0.1932, 0.8715, 0.0165, 0.2173, 0.8475, 0.0165, -0.2173, 0.8475, 0.0165, -0.1932, 0.8715, 0.0165, -0.2173, 0.3543, -0.153, -0.2173, 0.4191, 0.3385, -0.2173, 0.3543, 0.3385, -0.2173, 0.3543, -0.153, -0.2173, 0.4191, 0.0165, -0.2173, 0.4191, 0.3385, 0.2173, 0.4191, 0.3385, -0.2173, 0.4191, 0.0165, 0.2173, 0.4191, 0.0165, 0.2173, 0.4191, 0.3385, -0.2173, 0.4191, 0.3385, -0.2173, 0.4191, 0.0165, -0.1304, 0.3543, 0.489, -0.2173, 0.4191, 0.3385, -0.1304, 0.4191, 0.489, -0.1304, 0.3543, 0.489, -0.2173, 0.3543, 0.3385, -0.2173, 0.4191, 0.3385, 0.1304, 0.4191, 0.489, 0.2173, 0.3543, 0.3385, 0.1304, 0.3543, 0.489, 0.1304, 0.4191, 0.489, 0.2173, 0.4191, 0.3385, 0.2173, 0.3543, 0.3385, 0.2173, 0.422, 0.0539, -0.2173, 0.422, 0.3385, 0.2173, 0.422, 0.3385, 0.2173, 0.422, 0.0539, -0.2173, 0.422, 0.0539, -0.2173, 0.422, 0.3385, 0, 0.422, 0.5235, 0.1304, 0.422, 0.489, -0.1304, 0.422, 0.489, 0, 0.4423, 0.5235, -0.1304, 0.4423, 0.489, 0.1304, 0.4423, 0.489, -0.2173, 0.422, 0.0539, 0.2173, 0.4423, 0.0539, -0.2173, 0.4423, 0.0539, -0.2173, 0.422, 0.0539, 0.2173, 0.422, 0.0539, 0.2173, 0.4423, 0.0539, 0.2173, 0.3543, 0.3385, 0.2173, 0.4191, 0.0165, 0.2173, 0.3543, -0.153, 0.2173, 0.3543, 0.3385, 0.2173, 0.4191, 0.3385, 0.2173, 0.4191, 0.0165, -0.2173, 0.4191, -0.153, -0.2173, 0.4191, 0.0165, -0.2173, 0.3543, -0.153, -0.1932, 0.8715, 0.0165, -0.2173, 0.8475, -0.153, -0.1932, 0.8715, -0.153, -0.1932, 0.8715, 0.0165, -0.2173, 0.8475, 0.0165, -0.2173, 0.8475, -0.153, 0.2173, 0.8475, 0.0165, 0.1932, 0.8715, -0.153, 0.2173, 0.8475, -0.153, 0.2173, 0.8475, 0.0165, 0.1932, 0.8715, 0.0165, 0.1932, 0.8715, -0.153, -0.1932, 0.8715, 0.0165, 0.1932, 0.8715, -0.153, 0.1932, 0.8715, 0.0165, -0.1932, 0.8715, 0.0165, -0.1932, 0.8715, -0.153, 0.1932, 0.8715, -0.153, -0.1379, 0.7854, 0.0402, -0.1379, 0.8156, 0.019, -0.1379, 0.7854, 0.019, -0.1379, 0.7854, 0.0402, -0.1379, 0.8156, 0.0402, -0.1379, 0.8156, 0.019, -0.2195, 0.7908, 0.019, -0.2195, 0.8103, 0.0402, -0.2195, 0.7908, 0.0402, -0.2195, 0.7908, 0.019, -0.2195, 0.8103, 0.019, -0.2195, 0.8103, 0.0402, -0.2195, 0.7908, 0.0402, -0.1379, 0.8156, 0.0402, -0.1379, 0.7854, 0.0402, -0.2195, 0.7908, 0.0402, -0.2195, 0.8103, 0.0402, -0.1379, 0.8156, 0.0402, -0.1379, 0.7854, 0.019, -0.2195, 0.7908, 0.0402, -0.1379, 0.7854, 0.0402, -0.1379, 0.7854, 0.019, -0.2195, 0.7908, 0.019, -0.2195, 0.7908, 0.0402, -0.2195, 0.8103, 0.019, -0.1379, 0.8156, 0.0402, -0.2195, 0.8103, 0.0402, -0.2195, 0.8103, 0.019, -0.1379, 0.8156, 0.019, -0.1379, 0.8156, 0.0402, 0.2173, 0.4191, 0.0165, -0.2173, 0.8475, 0.0165, 0.2173, 0.8475, 0.0165, 0.2173, 0.4191, 0.0165, -0.2173, 0.4191, 0.0165, -0.2173, 0.8475, 0.0165, -0.2173, 0.4191, -0.153, 0.2173, 0.8475, -0.153, -0.2173, 0.8475, -0.153, -0.2173, 0.4191, -0.153, 0.2173, 0.4191, -0.153, 0.2173, 0.8475, -0.153 )
 
-[sub_resource type="PlaneMesh" id=12]
-size = Vector2( 1.25, 2 )
-
-[sub_resource type="SpatialMaterial" id=11]
-albedo_texture = ExtResource( 29 )
-
-[sub_resource type="SpatialMaterial" id=13]
-albedo_texture = ExtResource( 30 )
-
-[sub_resource type="SpatialMaterial" id=14]
-albedo_texture = ExtResource( 31 )
-
-[sub_resource type="SpatialMaterial" id=15]
-albedo_texture = ExtResource( 32 )
-
-[sub_resource type="SpatialMaterial" id=16]
-albedo_texture = ExtResource( 38 )
-
-[sub_resource type="SpatialMaterial" id=17]
-albedo_texture = ExtResource( 33 )
-
-[sub_resource type="SpatialMaterial" id=18]
-albedo_texture = ExtResource( 36 )
-
-[sub_resource type="SpatialMaterial" id=19]
-albedo_texture = ExtResource( 37 )
-
-[sub_resource type="SpatialMaterial" id=20]
-albedo_texture = ExtResource( 39 )
-
-[sub_resource type="SpatialMaterial" id=21]
-albedo_texture = ExtResource( 40 )
-
-[sub_resource type="SpatialMaterial" id=25]
-albedo_texture = ExtResource( 44 )
-
-[sub_resource type="SpatialMaterial" id=22]
-albedo_texture = ExtResource( 41 )
-
-[sub_resource type="SpatialMaterial" id=23]
-albedo_texture = ExtResource( 42 )
-
-[sub_resource type="SpatialMaterial" id=24]
-albedo_texture = ExtResource( 43 )
-
 [sub_resource type="BoxShape" id=26]
 
 [node name="TestRoom" type="Spatial"]
@@ -178,25 +154,27 @@ enabled = false
 
 [node name="LightWarning" parent="Lighting" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 3.932, 6.52322 )
+script = null
 
 [node name="LightWarning2" parent="Lighting" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.932, 6.02283 )
+script = null
 
 [node name="LightWall" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 5.99431, 4.31342, 0 )
-
-[node name="LightWall2" parent="Lighting" instance=ExtResource( 5 )]
-transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, 4.39175, 4.31342, 4.16748 )
-visible = false
+script = null
 
 [node name="LightWall3" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -4.13203, 4.31342, -4.3563 )
+script = null
 
 [node name="LightWall4" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -4.28217, 4.31342, 4.21294 )
+script = null
 
 [node name="LightWall5" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6.70142, 4.31342, 0.00985044 )
+script = null
 
 [node name="OmniLight" parent="Lighting/LightWall5" index="1"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0324292, 0.0873127 )
@@ -206,9 +184,11 @@ light_energy = 1.0
 
 [node name="LightWall6" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.43276, 3.94178, 12.3468 )
+script = null
 
 [node name="LightWall7" parent="Lighting" instance=ExtResource( 5 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.39867, 3.94178, 12.3468 )
+script = null
 
 [node name="OmniLight" type="OmniLight" parent="Lighting"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.10286, 2.27276, 1.82043 )
@@ -335,6 +315,11 @@ transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -7.22993, 2.39295, -2.49
 mesh = ExtResource( 57 )
 material/0 = ExtResource( 49 )
 
+[node name="manual" type="MeshInstance" parent="Furnitures"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -5.99872, 1.82717, 1.73192 )
+mesh = ExtResource( 72 )
+material/0 = ExtResource( 73 )
+
 [node name="Ladder" type="Spatial" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -360,93 +345,305 @@ transform = Transform( -1.5, 0, -2.26494e-07, 0, 1.5, 0, 2.26494e-07, 0, -1.5, 0
 mesh = ExtResource( 18 )
 material/0 = ExtResource( 24 )
 
+[node name="Posters" type="Spatial" parent="."]
+
+[node name="Poster" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -2.51951, 2.16605, 16.5242 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 29 )
+
+[node name="Poster2" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -2.51951, 2.16605, 14.2503 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 30 )
+
+[node name="Poster3" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -2.51951, 2.16605, 11.8846 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 31 )
+
+[node name="Poster4" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, -1.74846e-08, -2.51951, 2.16605, 9.4707 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 32 )
+
+[node name="Poster5" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 2.50661, 2.16605, 16.2944 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 38 )
+
+[node name="Poster6" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 2.50661, 2.16605, 14.0205 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 33 )
+
+[node name="Poster7" type="Sprite3D" parent="Posters"]
+transform = Transform( -1.74846e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.74846e-08, 2.50661, 2.16605, 11.6547 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 36 )
+
+[node name="Poster8" type="Sprite3D" parent="Posters"]
+transform = Transform( 0.4, 0, -3.34075e-23, 0, 0.4, 0, 3.34075e-23, 0, 0.4, -1.62074, 2.16605, 6.59435 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 37 )
+
+[node name="Poster9" type="Sprite3D" parent="Posters"]
+transform = Transform( 0.4, 0, -3.34075e-23, 0, 0.4, 0, 3.34075e-23, 0, 0.4, 1.6575, 2.16427, 6.60886 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 39 )
+
+[node name="Sign" type="Sprite3D" parent="Posters"]
+transform = Transform( -0.282843, 0, -0.282843, 0, 0.4, 0, 0.282843, 0, -0.282843, 3.21696, 2.88328, 5.40054 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 40 )
+
+[node name="Sign5" type="Sprite3D" parent="Posters"]
+transform = Transform( -0.282843, 0, 0.282843, 0, 0.4, 0, -0.282843, 0, -0.282843, -5.53574, 2.44267, 3.09068 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 44 )
+
+[node name="Sign2" type="Sprite3D" parent="Posters"]
+transform = Transform( 0.4, 0, -3.82137e-16, 0, 0.4, 0, 3.82137e-16, 0, 0.4, -1.71052, 2.11554, -6.09254 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 41 )
+
+[node name="Sign3" type="Sprite3D" parent="Posters"]
+transform = Transform( 0.4, 0, 3.34075e-23, 0, 0.4, 0, -3.34075e-23, 0, 0.4, -8.50395, 2.8156, -2.52814 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 42 )
+
+[node name="Sign4" type="Sprite3D" parent="Posters"]
+transform = Transform( 0.282843, 0, -0.282843, 0, 0.4, 0, 0.282843, 0, 0.282843, 3.39941, 2.9592, -5.19351 )
+cast_shadow = 0
+transparent = false
+shaded = true
+double_sided = false
+texture = ExtResource( 43 )
+
+[node name="Writings" type="Spatial" parent="."]
+
+[node name="Writing_0" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.282843, 0, -0.282843, 0, 0.4, 0, 0.282843, 0, -0.282843, 4.4779, 2.23898, 4.15241 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 59 )
+
+[node name="Writing_8" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.282211, -0.0188978, 0.282843, 0.0267255, 0.399106, 0, -0.282211, 0.0188978, 0.282843, -3.47425, 2.23898, -5.15869 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 67 )
+
+[node name="Writing_21" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.259001, -0.113661, 0.282843, 0.160741, 0.366282, 0, -0.259001, 0.113661, 0.282843, -4.19331, 1.22224, -4.42371 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 76 )
+
+[node name="Writing_3" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, -0.141421, 5.51586, 2.11486, 3.11208 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 62 )
+
+[node name="Writing_1" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.2, 0, 1.19209e-08, 0, 0.2, 0, -1.19209e-08, 0, 0.2, 1.62321, 2.60991, -6.10296 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 60 )
+
+[node name="Writing_2" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.282843, 0, 0.282843, 0, 0.4, 0, -0.282843, 0, -0.282843, -4.31455, 2.60991, 4.31849 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 61 )
+
+[node name="Writing_20" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -1.77904, 2.0577, -6.08976 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 75 )
+
+[node name="Writing_9" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, -3.00526, 3.69976, 5.60526 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 69 )
+
+[node name="Writing_10" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, -3.00526, 2.94113, 5.60526 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 69 )
+
+[node name="Writing_11" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, -1.4287, 1.80397, 6.01937 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 70 )
+
+[node name="Writing_16" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, -1.43352, 2.8021, 6.01937 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 70 )
+
+[node name="Writing_17" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, -2.38541, 2.8021, 6.01937 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 71 )
+
+[node name="Writing_18" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, -2.38059, 1.8041, 6.01937 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 71 )
+
+[node name="Writing_19" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, -2.38541, 0.803965, 6.01937 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 71 )
+
+[node name="Writing_15" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.2, 0, 3.01992e-08, 0, 0.2, 0, -3.01992e-08, 0, -0.2, -1.43352, 0.787915, 6.01937 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 70 )
+
+[node name="Writing_14" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, -3.00526, 2.11425, 5.60526 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 69 )
+
+[node name="Writing_12" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, -3.69334, 3.69338, 4.91718 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 69 )
+
+[node name="Writing_13" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, -3.69334, 2.94146, 4.91718 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 68 )
+
+[node name="Writing_5" type="Sprite3D" parent="Writings"]
+transform = Transform( -8.74228e-09, 0, 0.2, 0, 0.2, 0, -0.2, 0, -8.74228e-09, -6.08751, 2.81481, 1.6748 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 64 )
+
+[node name="Writing_22" type="Sprite3D" parent="Writings"]
+transform = Transform( -5.78252e-09, 6.55667e-09, 0.2, 0.149999, 0.132289, 3.91653e-16, -0.132289, 0.149999, -8.74228e-09, -10.9329, 2.60991, 0.0107942 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 77 )
+
+[node name="Writing_6" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.199524, -0.0137946, 0, 0.0137946, 0.199524, 0, 0, 0, 0.2, -7.70973, 3.19137, -2.52375 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 65 )
+
+[node name="Writing_7" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.196623, 0.0366016, -3.01992e-08, 0.0366016, 0.196623, 2.02678e-09, 3.00601e-08, -3.53413e-09, -0.2, -8.11884, 2.74594, 2.505 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 66 )
+
+[node name="Writing_4" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.141421, 0, 0.141421, 0, 0.2, 0, -0.141421, 0, -0.141421, -3.87002, 1.25226, 4.7591 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 63 )
+
+[node name="Writing_23" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.400472, 0.692548, 3.02722e-08, 0, -3.49691e-08, 0.8, 0.692548, -0.400472, -1.75052e-08, -1.16948, 0.0174749, 1.23527 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 78 )
+
+[node name="Writing_24" type="Sprite3D" parent="Writings"]
+transform = Transform( -0.384007, -0.701811, -3.06771e-08, 0, -3.49691e-08, 0.8, -0.701811, 0.384007, 1.67855e-08, 2.79798, 0.0174748, -0.591675 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 76 )
+
+[node name="Writing_25" type="Sprite3D" parent="Writings"]
+transform = Transform( 0.496371, 0.627388, 2.7424e-08, 0, -3.49691e-08, 0.8, 0.627388, -0.496371, -2.16971e-08, -2.03853, 0.0174746, -3.83153 )
+modulate = Color( 0, 0, 0, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 77 )
+
 [node name="Filler" type="Spatial" parent="."]
-
-[node name="Posters" type="Spatial" parent="Filler"]
-
-[node name="Poster" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.51951, 2.16605, 16.5242 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 11 )
-
-[node name="Poster2" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.51951, 2.16605, 14.2503 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 13 )
-
-[node name="Poster3" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.51951, 2.16605, 11.8846 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 14 )
-
-[node name="Poster4" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -2.51951, 2.16605, 9.4707 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 15 )
-
-[node name="Poster5" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2.50661, 2.16605, 16.2944 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 16 )
-
-[node name="Poster6" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2.50661, 2.16605, 14.0205 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 17 )
-
-[node name="Poster7" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 2.50661, 2.16605, 11.6547 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 18 )
-
-[node name="Poster8" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( 1, -8.35187e-23, 3.65072e-30, 0, -4.37114e-08, -1, 8.35187e-23, 1, -4.37114e-08, -1.62074, 2.16605, 6.59435 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 19 )
-
-[node name="Poster9" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( 1, -8.35187e-23, 3.65072e-30, 0, -4.37114e-08, -1, 8.35187e-23, 1, -4.37114e-08, 1.65513, 2.16605, 6.60587 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 20 )
-
-[node name="Sign" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, -0.707107, 3.09086e-08, 4.37156, 2.88328, 4.24594 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 21 )
-
-[node name="Sign5" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( -0.707107, 0.707107, -3.09086e-08, 0, -4.37114e-08, -1, -0.707107, -0.707107, 3.09086e-08, -5.52095, 2.44267, 3.07589 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 25 )
-
-[node name="Sign2" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( 1, -9.55343e-16, 4.17594e-23, 0, -4.37114e-08, -1, 9.55343e-16, 1, -4.37114e-08, -1.71052, 2.11554, -6.09254 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 22 )
-
-[node name="Sign3" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( 1, 8.35187e-23, -3.65072e-30, 0, -4.37114e-08, -1, -8.35187e-23, 1, -4.37114e-08, -8.50395, 2.8156, -2.52252 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 23 )
-
-[node name="Sign4" type="MeshInstance" parent="Filler/Posters"]
-transform = Transform( 0.707107, -0.707107, 3.09086e-08, 0, -4.37114e-08, -1, 0.707107, 0.707107, -3.09086e-08, 3.28567, 2.9592, -5.07977 )
-cast_shadow = 0
-mesh = SubResource( 12 )
-material/0 = SubResource( 24 )
 
 [node name="ProjectileGrenade" parent="Filler" instance=ExtResource( 21 )]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3.24881, 1.33805, 4.14364 )
@@ -462,7 +659,7 @@ mesh = ExtResource( 34 )
 material/0 = ExtResource( 35 )
 
 [node name="calender" type="MeshInstance" parent="Filler"]
-transform = Transform( -1.06014, -0.0332791, 1.06066, -0.0470638, 1.49926, 0, -1.06014, -0.0332791, -1.06066, -4.75675, 2.55667, 3.85124 )
+transform = Transform( -1.06014, -0.0332791, 1.06066, -0.0470638, 1.49926, 0, -1.06014, -0.0332791, -1.06066, -5.11027, 2.73171, 3.51107 )
 mesh = ExtResource( 15 )
 material/0 = ExtResource( 28 )
 
@@ -554,6 +751,89 @@ transform = Transform( -0.94557, 0.32542, -1.42246e-08, 0, -4.37114e-08, -1, -0.
 mesh = ExtResource( 52 )
 skeleton = NodePath("../..")
 material/0 = ExtResource( 58 )
+
+[node name="sign" type="Sprite3D" parent="Filler"]
+transform = Transform( -4.37114e-09, 0, 0.1, 0, 0.1, 0, -0.1, 0, -4.37114e-09, -6.08736, 0.852981, 1.73851 )
+shaded = true
+double_sided = false
+texture = ExtResource( 74 )
+
+[node name="dirt" type="Sprite3D" parent="Filler"]
+transform = Transform( 1.34902, 2.3329, 1.01974e-07, 0, -1.17796e-07, 2.69486, 2.3329, -1.34902, -5.89674e-08, 0.33009, 0.0117569, 0.368135 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt3" type="Sprite3D" parent="Filler"]
+transform = Transform( 1.56923, 1.23997, 5.42008e-08, 0, -8.74228e-08, 2, 1.23997, -1.56923, -6.85931e-08, -8.62212, 0.0348689, -0.293898 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt4" type="Sprite3D" parent="Filler"]
+transform = Transform( -0.590065, -0.696815, -3.04588e-08, 0, -3.99123e-08, 0.913087, -0.696815, 0.590065, 2.57926e-08, -8.76687, 0.0348689, -0.173592 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt6" type="Sprite3D" parent="Filler"]
+transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -8.01815, 1.50215, 2.50321 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt7" type="Sprite3D" parent="Filler"]
+transform = Transform( -0.5, 0, -7.54979e-08, 0, 0.5, 0, 7.54979e-08, 0, -0.5, -8.01499, 2.79938, 2.50321 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt8" type="Sprite3D" parent="Filler"]
+transform = Transform( 5.667e-08, 0, -0.291052, 0, 0.291052, 0, 0.291052, 0, 5.667e-08, -6.64211, 0.84853, 1.79494 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt9" type="Sprite3D" parent="Filler"]
+transform = Transform( 5.667e-08, 0, -0.291052, 0, 0.291052, 0, 0.291052, 0, 5.667e-08, -6.64211, 2.04749, 1.79494 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt10" type="Sprite3D" parent="Filler"]
+transform = Transform( -8.21146e-08, 0, 0.291052, 0, 0.291052, 0, -0.291052, 0, -8.21146e-08, -9.32758, 0.84853, 1.79494 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt11" type="Sprite3D" parent="Filler"]
+transform = Transform( -8.21146e-08, 0, 0.291052, 0, 0.291052, 0, -0.291052, 0, -8.21146e-08, -9.32758, 2.04749, 1.79494 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt5" type="Sprite3D" parent="Filler"]
+transform = Transform( -0.888425, 0.210784, 9.21368e-09, 0, -3.99123e-08, 0.913087, 0.210784, 0.888425, 3.88343e-08, -7.70743, 0.0348689, -0.939585 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
+
+[node name="dirt2" type="Sprite3D" parent="Filler"]
+transform = Transform( 2.6567, 0.451875, 1.97521e-08, 0, -1.17796e-07, 2.69486, 0.451875, -2.6567, -1.16128e-07, 0.33009, 0.0117569, 0.368135 )
+modulate = Color( 0.262745, 0.219608, 0.2, 1 )
+shaded = true
+double_sided = false
+texture = ExtResource( 79 )
 
 [node name="AreaExitTrigger" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8.31546, 1.00343, 0 )

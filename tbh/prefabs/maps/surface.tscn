@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/3d/map/mesh/surface.glb" type="PackedScene" id=1]
 [ext_resource path="res://resources/materials/ground_mud.tres" type="Material" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://resources/materials/apartment_5.tres" type="Material" id=9]
 [ext_resource path="res://resources/materials/apartment_0.tres" type="Material" id=10]
 [ext_resource path="res://resources/materials/weed_0.tres" type="Material" id=11]
+[ext_resource path="res://resources/materials/garbage_cluster.tres" type="Material" id=12]
+[ext_resource path="res://assets/3d/miscellaneous/mesh/garbages_Cylinder001.mesh" type="ArrayMesh" id=13]
 [ext_resource path="res://addons/scatter/src/core/scatter.gd" type="Script" id=19]
 [ext_resource path="res://addons/scatter/src/core/scatter_item.gd" type="Script" id=20]
 [ext_resource path="res://resources/materials/grass_green.tres" type="Material" id=21]
@@ -48,6 +50,19 @@ instance_count = 20
 visible_instance_count = 20
 mesh = ExtResource( 26 )
 transform_array = PoolVector3Array( -0.246307, -7.45058e-09, -1.17677, 0.0768909, 1.1997, -0.0160938, 1.17426, -0.0785571, -0.245781, -5.2738, 0.0048533, -4.7072, -1.47913, 0, 0.342875, -0.0251266, 1.51427, -0.108394, -0.341953, -0.111268, -1.47516, -6.13798, -0.00599771, -3.4071, -1.29544, -1.86265e-09, 0.911172, 0.0186664, 1.58346, 0.0265385, -0.91098, 0.0324458, -1.29517, 6.77406, -0.00127529, -8.29654, 1.24046, 0, -0.781261, 0.0397311, 1.46409, 0.0630839, 0.78025, -0.0745529, 1.23886, 5.00941, 0.00259052, -1.84098, 0.82306, 0, -0.700107, -0.0589503, 1.07671, -0.0693032, 0.697621, 0.0909839, 0.820137, 4.72223, -0.00924667, -1.59719, -0.843394, 0, 0.873086, 0.0116853, 1.21381, 0.0112879, -0.873007, 0.0162469, -0.843318, 5.49695, 1.85212e-05, -7.4372, -0.161665, 0, -1.08341, 0.0505587, 1.09421, -0.0075443, 1.08223, -0.0511185, -0.161489, 1.10581, 0.00383593, -3.45864, 1.38264, -1.11759e-08, 1.20092, -0.0609884, 1.829, 0.0702171, -1.19937, -0.0930055, 1.38085, -8.15088, 0.00762838, -6.16964, 0.914546, 0, 1.40672, 0.118641, 1.6719, -0.0771319, -1.40171, 0.14151, 0.911288, 12.3145, -0.00639241, 3.30571, -0.516656, 0, 1.21222, -0.036715, 1.31713, -0.0156482, -1.21167, -0.0399106, -0.516419, 0.657982, 0.00139081, 2.40443, 1.31861, 0, 0.758515, -0.00237085, 1.5212, 0.00412151, -0.758511, -0.00475477, 1.3186, 1.94431, 0.000476704, -6.48487, -1.10254, 0, 0.567661, -0.0354469, 1.23768, -0.0688471, -0.566553, -0.0774364, -1.10039, 3.72354, -0.00112272, -2.74764, -0.10277, -3.72529e-09, -1.73775, -0.0521457, 1.74, 0.00308389, 1.73697, 0.0522368, -0.102724, 6.59218, -0.00243664, -5.31536, 0.592179, -4.65661e-10, -0.990773, -0.00658597, 1.15423, -0.00393639, 0.990751, 0.00767269, 0.592166, -7.73192, 0.000264041, 1.65342, -1.43982, -1.16415e-10, -0.222732, 0.00096422, 1.45693, -0.00623308, 0.222729, -0.00630721, -1.43981, 12.4283, -4.95606e-05, -6.3389, -0.936386, 9.31323e-10, 1.3569, 0.0153322, 1.64853, 0.0105806, -1.35682, 0.0186286, -0.936326, -1.46174, -0.000493599, -6.65807, -0.161051, 1.49012e-08, 1.89044, -0.155385, 1.89087, -0.0132376, -1.88405, -0.155948, -0.160506, -8.51809, -0.0110773, -4.32896, 1.56201, 4.65661e-10, -0.0783551, 0.00465637, 1.56121, 0.0928247, 0.0782166, -0.0929414, 1.55925, 8.78688, 0.00305638, -0.633436, -1.12063, 4.65661e-10, 0.229048, 0.00453985, 1.14357, 0.0222115, -0.229003, 0.0226707, -1.12041, 13.4221, 0.00138343, -0.607863, 1.00039, 3.72529e-09, -1.29686, 0.0476636, 1.63677, 0.0367673, 1.29599, -0.0601967, 0.999714, -2.33918, -0.000595874, -1.16463 )
+
+[sub_resource type="Curve3D" id=17]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.14024, 0, 3.29532, 0, 0, 0, 0, 0, 0, 14.2681, 1.19209e-07, -4.38955 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="MultiMesh" id=18]
+transform_format = 1
+instance_count = 10
+visible_instance_count = 10
+mesh = ExtResource( 13 )
+transform_array = PoolVector3Array( -0.204868, -0.97879, 4.09782e-08, 0, -4.37114e-08, -1, 0.97879, -0.204868, 0, -1.21449, 1.19209e-07, -1.6339, -0.974169, 0.22582, 0, 0, -4.37114e-08, -1, -0.22582, -0.974169, 4.09782e-08, -1.86284, 1.19209e-07, -0.761888, -0.817935, 0.57531, 0, 0, -4.37114e-08, -1, -0.57531, -0.817935, 2.98023e-08, 8.61493, 1.19209e-07, -3.7767, 0.846162, -0.532925, -2.98023e-08, 0, -4.37114e-08, -1, 0.532925, 0.846162, -2.98023e-08, 7.5452, 1.19209e-07, -3.22387, 0.761708, -0.64792, 0, 0, -4.37114e-08, -1, 0.64792, 0.761708, 0, 3.90377, 1.19209e-07, -0.890833, -0.694771, 0.719231, -2.98023e-08, 0, -4.37114e-08, -1, -0.719231, -0.694771, 2.98023e-08, -3.67743, 1.19209e-07, -2.55532, -0.147585, -0.989049, 4.09782e-08, 0, -4.37114e-08, -1, 0.989049, -0.147585, 0, 4.66567, 1.19209e-07, -2.74563, 0.754978, 0.65575, 0, 0, -4.37114e-08, -1, -0.65575, 0.754978, -2.98023e-08, -3.28862, 1.19209e-07, 2.24413, 0.545063, 0.838395, -1.49012e-08, 0, -4.37114e-08, -1, -0.838395, 0.545063, 0, 1.70333, 1.19209e-07, -2.78419, -0.39208, 0.919931, -2.98023e-08, 0, -4.37114e-08, -1, -0.919931, -0.39208, 0, -4.03568, 1.19209e-07, -1.2825 )
 
 [node name="surface" instance=ExtResource( 1 )]
 
@@ -142,3 +157,35 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.875, 0, 0 )
 visible = false
 mesh = ExtResource( 26 )
 material/0 = ExtResource( 11 )
+
+[node name="Scatter2" type="Path" parent="." index="8"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.366655, 0 )
+curve = SubResource( 17 )
+script = ExtResource( 19 )
+modifier_stack = Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/core/modifier_stack.gd" ),"stack":[ Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/distribute_inside_random.gd" ),"enabled":true,"display_name":"Distribute Inside (Random)","category":"Distribute","warning":"","warning_ignore_no_transforms":true,"warning_ignore_no_path":false,"override_global_seed":false,"custom_seed":0,"instance_count":10,"_rng":Object(RandomNumberGenerator,"seed":-5078632783621045781,"state":-7649028951336145426,"script":null)
+)
+, Object(Node,"_import_path":NodePath(""),"pause_mode":0,"process_priority":0,"script":Resource( "res://addons/scatter/src/modifiers/randomize_transforms.gd" ),"enabled":true,"display_name":"Randomize Transforms","category":"Edit","warning":"","warning_ignore_no_transforms":false,"warning_ignore_no_path":true,"override_global_seed":false,"custom_seed":0,"local_space":true,"position":Vector3( 0, 0, 0 ),"rotation":Vector3( 0, 360, 0 ),"scale":Vector3( 0, 0, 0 ),"_rng":Object(RandomNumberGenerator,"seed":-7797863892875013621,"state":4350059564108325774,"script":null)
+)
+ ],"just_created":false,"undo_redo":Object(UndoRedo,"script":null)
+)
+
+
+[node name="ScatterItem" type="Spatial" parent="Scatter2" index="0"]
+script = ExtResource( 20 )
+local_item_path = NodePath("../../water_bottle")
+ignore_initial_rotation = false
+materials = [ ExtResource( 12 ) ]
+merge_target_meshes = false
+cast_shadow = 1
+
+[node name="MultiMeshInstance" type="MultiMeshInstance" parent="Scatter2/ScatterItem" index="0"]
+multimesh = SubResource( 18 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="water_bottle" type="MeshInstance" parent="." index="9"]
+transform = Transform( 1.5, 0, 0, 0, -6.55671e-08, -1.5, 0, 1.5, -6.55671e-08, 17.5135, 0, 0 )
+mesh = ExtResource( 13 )
+material/0 = ExtResource( 12 )

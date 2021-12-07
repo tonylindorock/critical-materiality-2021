@@ -126,7 +126,7 @@ func _ready():
 func _process(delta):
 	check_for_interactive_obj()
 	_handle_weapon_sway(delta)
-	#_handle_crouching(delta)
+	_handle_crouching(delta)
 	
 	# sync other cameras with the main camera
 	_camera_gun.global_transform = _camera.global_transform

@@ -13,7 +13,6 @@
       "lights",
       "plank_wall",
       "concrete",
-      "weed_0",
       "pine_tree_leaves",
       "pine_tree_trunk",
       "far_apartment_tall",
@@ -24,9 +23,12 @@
       "far_road",
       "far_concrete",
       "box_foggy",
-      "oak_tree_trunk",
-      "light_flare",
-      "signs"
+      "signs",
+      "garbage_cluster",
+      "pile",
+      "office",
+      "ceramic",
+      "water"
     ]
   },
   "1": {
